@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBI name="AUTOMIC_CA_VERACODE.PUB.INCLUDE.ATTACH_RESOURCE">
+<JOBI name="PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ATTACH_RESOURCE">
 <HEADER state="1">
 <Title>Attach the jar to current agent</Title>
 <ArchiveKey1/>
@@ -7,10 +7,10 @@
 <OH_SubType/>
 </HEADER>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[:ATTACH_RES "AUTOMIC_CA_VERACODE.PRV.STORE" ,"TOOL", C, N
+<MSCRI><![CDATA[:ATTACH_RES "PCK.AUTOMIC_CA_VERACODE.PRV.STORE" ,"VERACODETOOL", C, N
 
 ! Setting jar class path into variable
-:SET &UC4RB_PATH_JAR#= STR_CAT(&$AGENT_RESOURCES_CLIENT#,"tool.jar")]]></MSCRI>
+:SET &UC4RB_PATH_JAR#= STR_CAT(&$AGENT_RESOURCES_CLIENT#,"VeracodeJavaAPI.jar")]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[This includes attaches the jar to current agent
