@@ -113,6 +113,8 @@
 !----------------------------------------------- Parameter validation ---------------------------------------------------------------------------------------------
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CONNECTION_PARAM_LOG
+
 : SET &UC4RB_LOGGING_PARAMETER# = "Firstname"
 : SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_FIRST_NAME#
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
@@ -145,12 +147,8 @@
 
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ATTACH_RESOURCE
 
-: SET &UC4RB_CMD# = 'java -jar "&UC4RB_PATH_JAR#" -action createuser'
-
-! Username
-: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_USERNAME#
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
-: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#, " -vuser &UC4RB_ESCAPED_STRING#")
+: SET &ACTION_NAME# = "createuser"
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@UNIX
 
 ! First name
 : SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_FIRST_NAME#
@@ -181,12 +179,7 @@
 
 : PRINT "Command executed :: &UC4RB_CMD#"
 
-! Access key is decrypted
-: INC PCK.ITPA_SHARED.PUB.INCLUDE.ATTACH
-: SET &UC4RB_ENCRYPTED_PASSWORD_TMP# = "&UC4RB_VER_PASSWORD#"
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.DECRYPT_PASSWORD
-
-  &UC4RB_CMD# -vpassword $UC4_DECRYPTED_PWD
+  &UC4RB_CMD#
 
 !------------------------------------------Check error level --------------------------------------------------------------------------------------------------------
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@UNIX
