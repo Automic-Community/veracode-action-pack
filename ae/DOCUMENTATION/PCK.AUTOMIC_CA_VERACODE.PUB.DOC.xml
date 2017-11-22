@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<DOCU name="AUTOMIC_CA_VERACODE.PUB.DOC">
+<DOCU name="PCK.AUTOMIC_CA_VERACODE.PUB.DOC">
 <HEADER state="1">
 <Title>Package documentation</Title>
 <ArchiveKey1/>
@@ -16,7 +16,7 @@
 =Setup=
 
 =Variables=
-AUTOMIC_CA_VERACODE.PUB.VARA.PACKAGE_PARAMETERS
+PCK.AUTOMIC_CA_VERACODE.PUB.VARA.PACKAGE_PARAMETERS
 * API version and https port can be configured in this VARA based on your environment.
 
 =Actions=
