@@ -133,8 +133,6 @@
 
 !------------------------------------------ Running clear file command -------------------------------------------------------------------------------------------
 
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ATTACH_RESOURCE
-
 : SET &ACTION_NAME# = "createteam"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@UNIX
 

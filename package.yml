@@ -3,13 +3,3 @@ name: PCK.AUTOMIC_CA_VERACODE
 
 source: ae
 
-# binary object resource mapping will be defined here
-binaries:
-  
-  - object: RESOURCES/LIBS/PCK.AUTOMIC_CA_VERACODE.PRV.STORE
-    resources: 
-      - name: VERACODETOOL
-        type: BINARY
-        path: tools/VeracodeJavaAPI.jar
-        version: 1.0.0
-
