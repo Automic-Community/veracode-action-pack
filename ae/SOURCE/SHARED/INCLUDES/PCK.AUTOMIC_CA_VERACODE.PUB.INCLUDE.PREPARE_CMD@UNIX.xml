@@ -9,8 +9,8 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[! Add read action, URL and skip SSL validation  to java arguments
 
-! Veracode Java API Wrapper Path
-: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_API_PATH#
+! Veracode CLI Location
+: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_CLI_PATH#
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
 
 : SET &UC4RB_CMD# = 'java -jar &UC4RB_ESCAPED_STRING# -action &ACTION_NAME#'
