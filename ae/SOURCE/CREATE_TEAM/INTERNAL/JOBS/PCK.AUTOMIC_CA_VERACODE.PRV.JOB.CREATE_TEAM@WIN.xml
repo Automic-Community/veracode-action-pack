@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.CREATE_TEAM@UNIX">
+<JOBS_WINDOWS AttrType="WINDOWS" name="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.CREATE_TEAM@WIN">
 <XHEADER state="1">
 <Title>Create Team</Title>
 <ArchiveKey1/>
@@ -17,8 +17,8 @@
 <ATTR_JOBS state="1">
 <Queue>CLIENT_QUEUE</Queue>
 <StartType/>
-<HostDst>|&lt;UNIX&gt;|HOST</HostDst>
-<HostATTR_Type>UNIX</HostATTR_Type>
+<HostDst>|&lt;WIN&gt;|HOST</HostDst>
+<HostATTR_Type>WINDOWS</HostATTR_Type>
 <CodeName/>
 <Login/>
 <IntAccount/>
@@ -40,17 +40,25 @@
 <MpElse2>0</MpElse2>
 <TZ/>
 </ATTR_JOBS>
-<ATTR_UNIX state="1">
+<ATTR_WINDOWS state="1">
 <OutputDb>1</OutputDb>
 <OutputDbErr>0</OutputDbErr>
 <OutputFile>0</OutputFile>
-<ShellScript>1</ShellScript>
-<Command>0</Command>
-<Priority>0</Priority>
-<Shell>-bash</Shell>
-<ShellOptions/>
-<Com/>
-</ATTR_UNIX>
+<IsGenerated>0</IsGenerated>
+<BAT>1</BAT>
+<COM>0</COM>
+<WinBatch>0</WinBatch>
+<Standard>1</Standard>
+<Minimized>0</Minimized>
+<Maximized>0</Maximized>
+<JObjDefault>1</JObjDefault>
+<JObjYes>0</JObjYes>
+<JObjNo>0</JObjNo>
+<WorkingDirectory>c:\</WorkingDirectory>
+<Command/>
+<LogOn>0</LogOn>
+<ShowJob>0</ShowJob>
+</ATTR_WINDOWS>
 <RUNTIME state="1">
 <MaxRetCode>0</MaxRetCode>
 <MrcExecute/>
@@ -104,16 +112,17 @@
 <FInclSubDirs>0</FInclSubDirs>
 </ROLLBACK>
 <PRE_SCRIPT mode="1" replacementmode="1" state="1">
-<PSCRI><![CDATA[:INC PCK.ITPA_SHARED.PUB.INCLUDE.START_STOP_JOB_ACCORDING_TO_AGENT_OS]]></PSCRI>
+<PSCRI/>
 </PRE_SCRIPT>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[: DEFINE &STRING_ARR#, string, 30
-: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER
+<MSCRI><![CDATA[@echo off
 
 !----------------------------------------------- Parameter validation ---------------------------------------------------------------------------------------------
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CONNECTION_PARAM_LOG
+: SET &UC4RB_LOGGING_PARAMETER# = "Username"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_USERNAME#
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
 : SET &UC4RB_LOGGING_PARAMETER# = "Team Name"
 : SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_TEAM#
@@ -128,33 +137,40 @@
 
 !------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
 ! Status messages
-: SET &UC4RB_LOGGING_INFO# = "********  CREATE TEAM ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_INFO# = "********  CREATE TEAM JOB EXECUTED SUCCESSFULLY ********"
 : SET &UC4RB_LOGGING_ERROR# = "******** CREATE TEAM ACTION EXECUTION FAILED ********"
 
 !------------------------------------------ Running clear file command -------------------------------------------------------------------------------------------
 
-: SET &ACTION_NAME# = "createteam"
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@UNIX
+: SET &UC4RB_CMD# = 'java -jar VeracodeJavaAPI.jar -action createteam'
+
+! Username
+: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_USERNAME#
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
+: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#, " -vuser &UC4RB_ESCAPED_STRING#")
 
 ! Team name
-: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_TEAM#
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
-: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -teamname &UC4RB_ESCAPED_STRING#")
+: SET &UC4RB_TM_ESCAPED_STRING# = &UC4RB_VER_TEAM#
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
+: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -teamname &UC4RB_TM_ESCAPED_STRING#")
 
 ! Member name
-: IF &UC4RB_VER_MEMBER# <> ""
-:     SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_MEMBER#
-:     INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
-:     SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -members &UC4RB_ESCAPED_STRING#")
-: ENDIF
+: SET &UC4RB_TM_ESCAPED_STRING# = &UC4RB_VER_MEMBER#
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
+: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -members &UC4RB_TM_ESCAPED_STRING#")
 
 : PRINT "Command executed :: &UC4RB_CMD#"
 
-  &UC4RB_CMD#
+! Access key is decrypted
+: INC PCK.ITPA_SHARED.PUB.INCLUDE.ATTACH
+: SET &UC4RB_ENCRYPTED_PASSWORD_TMP# = "&UC4RB_VER_PASSWORD#"
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.DECRYPT_PASSWORD
+
+  &UC4RB_CMD# -vpassword %UC4_DECRYPTED_PWD%
 
 !------------------------------------------Check error level --------------------------------------------------------------------------------------------------------
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@UNIX
-: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_FOOTER]]></MSCRI>
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@WIN
+]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>
@@ -168,5 +184,5 @@
 <DOCU_Docu state="1" type="text">
 <DOC/>
 </DOCU_Docu>
-</JOBS_UNIX>
+</JOBS_WINDOWS>
 </uc-export>
