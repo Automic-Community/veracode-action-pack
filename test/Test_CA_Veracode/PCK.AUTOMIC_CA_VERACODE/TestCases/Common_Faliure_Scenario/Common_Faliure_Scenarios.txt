@@ -1,0 +1,70 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        common_failure_scenarios
+Test Template     Common Failure Scenarios
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    APIID             APIKEY        VeracodeCLILocation         ApplicationID        Modules      ScanOptions    SandboxID
+Assertion with Invalid Rest API ID
+                      [Tags]    main_scenarios
+                      NOK       Invalid           ${API_KEY}    ${Veracode_CLI_Location}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+
+Assertion with invalid API Key
+                      NOK       ${API_ID}         Invalid       ${Veracode_CLI_Location}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+
+Assertion with invalid Veracode CLI Location
+                      NOK       ${API_ID}         ${API_KEY}    Invalid                     ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+
+Assert Rest API ID as mandatory field
+                      NOK       ${EMPTY}          ${API_KEY}    ${Veracode_CLI_Location}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+
+Assert API Key as mandatory field
+                      NOK       ${API_ID}         ${EMPTY}      ${Veracode_CLI_Location}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+
+Assert Veracode CLI Location as mandatory field
+                      NOK       ${API_ID}         ${API_KEY}    ${EMPTY}                    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "COMMON FAILURE SCENARIOS"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Common Failure Scenarios
+    [Arguments]    ${OK_NOK}    ${APIID}    ${APIKEY}    ${VeracodeCLILocation}    ${ApplicationID}    ${Modules}
+    ...    ${ScanOptions}    ${SandboxID}
+    [Documentation]    This test executes the common failure scenarios for action pack with Begin Scan action
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK/FAULT_OTHER. Value of this variable should be OK, NOK.
+    ...    -${APIID}: This field specifies API ID for authentication.
+    ...    -${APIKEY}: This field specifies API key for authentication.
+    ...    -${VeracodeCLILocation}:This field specifies the path for Veracode Java CLI.
+    ...    -${ApplicationID}: This field specifies application ID which will be scanned.
+    ...    -${Modules}: This field specifies top-level module IDs separated by comma.
+    ...    -${ScanOptions}: This field specifies option to scan modules.
+    ...    -${SandboxID}: This field specifies the ID of the sandbox if you are performing a sandbox scan.
+    Generate String
+    Init Action    ${_BEGIN_SCAN_ACTION}
+    Connect to Veracode
+    Connect to Proxy
+    Run Keyword If    '${APIID}' == 'Invalid'    Action Set    &UC4RB_VER_API_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_API_ID#    ${APIID}
+    Run Keyword If    '${APIKEY}' == 'Invalid'    Action Set    &UC4RB_VER_API_KEY#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_API_KEY#    ${APIKEY}
+    Run Keyword If    '${VeracodeCLILocation}' == 'Invalid'    Action Set    &UC4RB_VER_CLI_PATH#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_CLI_PATH#    ${VeracodeCLILocation}
+    Action Set    &UC4RB_VER_APP_ID#    ${ApplicationID}
+    Action Set    &UC4RB_VER_MODULES#    ${Modules}
+    Action Set    &UC4RB_VER_SCAN_OPTIONS#    ${ScanOptions}
+    Action Set    &UC4RB_VER_SANDBOX#    ${SandboxID}
+    Action Execute
+    Assert Failure
+
+Teardown
+    Log    *******End Test "COMMON FAILURE SCENARIOS"*******
