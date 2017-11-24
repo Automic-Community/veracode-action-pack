@@ -7,7 +7,7 @@
 <OH_SubType/>
 </HEADER>
 <SCRIPT mode="1" state="1">
-<MSCRI><![CDATA[! Get attribute value key
+<MSCRI><![CDATA[! Get attribute value key from vara
 : SET &HANDLE# = PREP_PROCESS_VAR(&ATTRIBUTE_VARA#,,&UC4RB_ATTRIBUTE_NAME#)
 : DEFINE &ATTRIBUTE#, string
 : PROCESS &HANDLE#
