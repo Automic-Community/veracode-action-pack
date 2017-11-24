@@ -125,7 +125,7 @@
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
-!------------------------------------------ Running clear file command -------------------------------------------------------------------------------------------
+!------------------------------------------ Running create team command -------------------------------------------------------------------------------------------
 : SET &ACTION_NAME# = "createteam"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@UNIX
 
