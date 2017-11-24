@@ -24,7 +24,7 @@
 
 !            Reading the xml
 :            SET &XMLDOCU# = XML_OPEN(STRING,&UC4RB_VER_RESPONSE#)
-!                 A bad XML string either leads to run time error, or returns a return code which can be read with sys_last_err_nr().
+!                 A bad XML string either leads to run time error, or returns a return code which can be read with sys_last_err_nr()
 :                 SET &ERROR# = sys_last_err_nr()
 :                 IF &ERROR# > 0
 :                     SET &ERROR_DETAILS# = sys_last_err_ins()

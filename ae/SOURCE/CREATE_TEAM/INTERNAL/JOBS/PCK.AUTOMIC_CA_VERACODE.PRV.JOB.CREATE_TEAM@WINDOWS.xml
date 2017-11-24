@@ -151,7 +151,6 @@
 : PRINT "Command executed :: &UC4RB_CMD#"
 
   &UC4RB_CMD#
-
 !------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
 ! Status messages
 : SET &UC4RB_LOGGING_INFO# = "********  CREATE TEAM JOB EXECUTED SUCCESSFULLY ********"
