@@ -1,0 +1,16 @@
+*** Settings ***
+Resource          ../../../Env/default.txt
+
+*** Variables ***
+#---- Promptset Fields --------------------------------------------------------------------------------------
+#----Global Variables----------------------------------------------------------------------------------------
+${API_ID}         ADD_API_ID_HERE
+${API_Key}        ADD_API_KEY_HERE
+${Veracode_CLI_Location}    ${EXECDIR}\\VeracodeJavaAPI.jar
+#----Create Team----------------------------------------------------------------------------------------
+${Team_Name}      SpartanTeam
+${Team_Name_1}    AutomationTeam
+${Team_Name_2}    HermesTeam
+${Team_Name_3}    RobotTeam
+${Team_Members}    ankit.taneja@ext.automic.com,shruti.nambiar@ext.automic.com
+${Member}         ankit.taneja@ext.automic.com
