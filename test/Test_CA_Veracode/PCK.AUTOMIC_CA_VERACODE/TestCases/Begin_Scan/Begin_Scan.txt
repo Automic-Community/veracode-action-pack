@@ -11,25 +11,22 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    ApplicationID        Modules      ScanOptions              SandboxID
+*** Test Cases ***    OK_NOK    ApplicationID        Modules      ScanOptions                   SandboxID
 Begin Scan with valid Inputs with providing module
                       [Tags]    main_scenarios
-                      OK        ${Application_ID}    ${Module}    ${EMPTY}                 ${Sandbox_ID}
+                      OK        ${Application_ID}    ${Module}    ${EMPTY}                      ${EMPTY}
 
 Begin Scan with valid Inputs without providing module
-                      OK        ${Application_ID}    ${EMPTY}     Scan Selected Modules    ${Sandbox_ID}
+                      OK        ${Application_ID}    ${EMPTY}     Scan All Top Level Modules    ${Sandbox_ID}
 
 Begin Scan with Invalid Application ID
-                      NOK       Invalid              ${Module}    ${EMPTY}                 ${Sandbox_ID}
+                      NOK       Invalid              ${Module}    ${EMPTY}                      ${Sandbox_ID}
 
 Begin Scan with invalid Module
-                      NOK       ${Application_ID}    Invalid      ${EMPTY}                 ${Sandbox_ID}
-
-Begin Scan with invalid Sandbox ID
-                      NOK       ${Application_ID}    ${Module}    ${EMPTY}                 Invalid
+                      NOK       ${Application_ID}    Invalid      ${EMPTY}                      ${Sandbox_ID}
 
 Assert Application ID as mandatory field
-                      NOK       ${EMPTY}             ${Module}    ${EMPTY}                 ${Sandbox_ID}
+                      NOK       ${EMPTY}             ${Module}    ${EMPTY}                      ${Sandbox_ID}
 
 *** Keywords ***
 Startup
@@ -57,6 +54,8 @@ Begin Scan Template
     Run Keyword If    '${SandboxID}' == 'Invalid'    Action Set    &UC4RB_VER_SANDBOX#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_VER_SANDBOX#    ${SandboxID}
     Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_BUILD_ID#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_BUILD_ID#
 
 Teardown
     Log    *******End Test "BEGIN SCAN"*******
