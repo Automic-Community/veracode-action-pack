@@ -47,7 +47,7 @@
 :                  MODIFY_STATE RETCODE=50
 :            ENDIF
 
-!			 Delete temporary file			 
+!			 Delete temporary file
 :			 SET &UC4RB_DELETE_FILE#=&UC4RB_TEMP_FILE_PATH#
 :			 INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.DELETE_FILE
 :ENDIF
