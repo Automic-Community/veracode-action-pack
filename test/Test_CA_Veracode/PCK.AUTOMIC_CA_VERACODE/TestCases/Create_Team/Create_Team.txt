@@ -51,14 +51,13 @@ Create Team Template
     Init Action    ${_CREATE_TEAM_ACTION}
     Connect to Veracode
     Connect to Proxy
-    Run Keyword If    '${TeamName}' == 'Invalid'    Action Set    &UC4RB_VER_TEAM#    ${Generated_Name}_${Time}    ELSE    Action Set
-    ...    &UC4RB_VER_TEAM#    ${TeamName}
+    Action Set    &UC4RB_VER_TEAM#    ${TeamName}
     Run Keyword If    '${Members}' == 'Invalid'    Action Set    &UC4RB_VER_MEMBER#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_VER_MEMBER#    ${Members}
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
-    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Count Value Should Be    &UC4RB_VER_TEAM_ID#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_TEAM_ID#
-    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Count Value Should Be    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_TEAM_ID#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_TEAM_ID#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
 
 Teardown
     Log    *******End Test "CREATE TEAM"*******
