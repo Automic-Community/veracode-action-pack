@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBS_WINDOWS AttrType="WINDOWS" name="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.BEGIN_SCAN@WINDOWS">
+<XHEADER state="1">
+<Title>Begin Scan</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<Active>1</Active>
+<OH_SubType/>
+<CustomAttributes KeyListID="0" dataRequestID="0"/>
+</XHEADER>
+<OUTPUTREG state="1">
+<FileReg/>
+</OUTPUTREG>
+<SYNCREF state="1">
+<Syncs/>
+</SYNCREF>
+<ATTR_JOBS state="1">
+<Queue>CLIENT_QUEUE</Queue>
+<StartType/>
+<HostDst>|&lt;WIN&gt;|HOST</HostDst>
+<HostATTR_Type>WINDOWS</HostATTR_Type>
+<CodeName/>
+<Login/>
+<IntAccount/>
+<ExtRepDef>1</ExtRepDef>
+<ExtRepAll>0</ExtRepAll>
+<ExtRepNone>0</ExtRepNone>
+<AutoDeactNo>0</AutoDeactNo>
+<AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
+<AutoDeactErrorFree>0</AutoDeactErrorFree>
+<DeactWhen/>
+<DeactDelay>0</DeactDelay>
+<AutoDeactAlways>1</AutoDeactAlways>
+<AttDialog>0</AttDialog>
+<ActAtRun>0</ActAtRun>
+<Consumption>0</Consumption>
+<UC4Priority>0</UC4Priority>
+<MaxParallel2>0</MaxParallel2>
+<MpElse1>1</MpElse1>
+<MpElse2>0</MpElse2>
+<TZ/>
+</ATTR_JOBS>
+<ATTR_WINDOWS state="1">
+<OutputDb>1</OutputDb>
+<OutputDbErr>0</OutputDbErr>
+<OutputFile>0</OutputFile>
+<IsGenerated>0</IsGenerated>
+<BAT>1</BAT>
+<COM>0</COM>
+<WinBatch>0</WinBatch>
+<Standard>1</Standard>
+<Minimized>0</Minimized>
+<Maximized>0</Maximized>
+<JObjDefault>1</JObjDefault>
+<JObjYes>0</JObjYes>
+<JObjNo>0</JObjNo>
+<WorkingDirectory>c:\</WorkingDirectory>
+<Command/>
+<LogOn>0</LogOn>
+<ShowJob>0</ShowJob>
+</ATTR_WINDOWS>
+<RUNTIME state="1">
+<MaxRetCode>0</MaxRetCode>
+<MrcExecute/>
+<MrcElseE>0</MrcElseE>
+<FcstStatus>0| |</FcstStatus>
+
+<ErtMethodDef>1</ErtMethodDef>
+<ErtMethodFix>0</ErtMethodFix>
+<ErtFix>0</ErtFix>
+<ErtDynMethod>2|Average</ErtDynMethod>
+<ErtMethodDyn>0</ErtMethodDyn>
+<ErtCnt>0</ErtCnt>
+<ErtCorr>0</ErtCorr>
+<ErtIgn>0</ErtIgn>
+<ErtIgnFlg>0</ErtIgnFlg>
+<ErtMinCnt>0</ErtMinCnt>
+<MrtMethodNone>1</MrtMethodNone>
+<MrtMethodFix>0</MrtMethodFix>
+<MrtFix>0</MrtFix>
+<MrtMethodErt>0</MrtMethodErt>
+<MrtErt>0</MrtErt>
+<MrtMethodDate>0</MrtMethodDate>
+<MrtDays>0</MrtDays>
+<MrtTime>00:00</MrtTime>
+<MrtTZ/>
+<SrtMethodNone>1</SrtMethodNone>
+<SrtMethodFix>0</SrtMethodFix>
+<SrtFix>0</SrtFix>
+<SrtMethodErt>0</SrtMethodErt>
+<SrtErt>0</SrtErt>
+<MrtCancel>0</MrtCancel>
+<MrtExecute>0</MrtExecute>
+<MrtExecuteObj/>
+</RUNTIME>
+<DYNVALUES state="1">
+<dyntree>
+<node content="1" id="VALUE" name="Variables" parent="" type="VALUE">
+<VALUE state="1">
+<Values/>
+<Mode>0</Mode>
+</VALUE>
+</node>
+</dyntree>
+</DYNVALUES>
+<ROLLBACK state="1">
+<RollbackFlag>0</RollbackFlag>
+<CBackupObj/>
+<CRollbackObj/>
+<FBackupPath/>
+<FDeleteBefore>0</FDeleteBefore>
+<FInclSubDirs>0</FInclSubDirs>
+</ROLLBACK>
+<PRE_SCRIPT mode="1" replacementmode="1" state="1">
+<PSCRI><![CDATA[:INC PCK.ITPA_SHARED.PUB.INCLUDE.START_STOP_JOB_ACCORDING_TO_AGENT_OS]]></PSCRI>
+</PRE_SCRIPT>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[@echo off
+
+: DEFINE &STRING_ARR#, string, 30
+: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER
+
+!----------------------------------------------- Parameter validation ---------------------------------------------------------------------------------------------
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
+
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CONNECTION_PARAM_LOG
+
+: SET &UC4RB_LOGGING_PARAMETER# = "Application ID"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_APP_ID#
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+
+: SET &UC4RB_LOGGING_PARAMETER# = "Modules"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_MODULES#
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+
+: SET &UC4RB_LOGGING_PARAMETER# = "Scan Options"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_SCAN_OPTIONS#
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+
+: SET &UC4RB_LOGGING_PARAMETER# = "Sandbox ID"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_SANDBOX#
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
+
+
+!------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
+! Status messages
+: SET &UC4RB_LOGGING_INFO# = "********  BEGIN SCAN ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** BEGIN SCAN ACTION EXECUTION FAILED ********"
+
+!------------------------------------------ Running begin scan command -------------------------------------------------------------------------------------------
+!Check on modules and scan options
+:SET &CHECK# = 0
+:IF &UC4RB_VER_MODULES# <> ""
+:  SET &CHECK# = &CHECK# + 1
+:ENDIF
+
+:IF &UC4RB_VER_SCAN_OPTIONS# <> ""
+:   SET &CHECK# = &CHECK# + 1
+:ENDIF
+
+:IF &CHECK# = 0
+: STOP MSG, 50, "Either Modules or Scan options input must be provided."
+:ENDIF
+
+:IF &CHECK# = 2
+: STOP MSG, 50, "Do not select both Modules and Scan options."
+:ENDIF
+
+: IF &UC4RB_VER_SANDBOX# <> ''
+:  SET &NUM_CHECK#=ISNUMERIC(&UC4RB_VER_SANDBOX#)
+:  IF &NUM_CHECK# <> 'Y'
+:    STOP MSG, 50, "Incorrect Sandbox ID, it can only be numeric."
+:  ENDIF
+:ENDIF
+
+: SET &ACTION_NAME# = "beginScan"
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@WIN
+
+! Application ID
+: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_APP_ID#
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
+: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -appid &UC4RB_ESCAPED_STRING#")
+
+! Modules
+: IF &UC4RB_VER_MODULES# <> ""
+:     SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_MODULES#
+:     INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
+:     SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -modules &UC4RB_ESCAPED_STRING#")
+: ENDIF
+
+! Scan Modules
+:IF &UC4RB_VER_SCAN_OPTIONS# <> ""
+:     SET &ATTRIBUTE_VARA# = "PCK.AUTOMIC_CA_VERACODE.PRV.VARA.SCAN_OPTIONS"
+:     SET &UC4RB_ATTRIBUTE_NAME# = &UC4RB_VER_SCAN_OPTIONS#
+:     INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ITERATE_VARA
+:     SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#, " -&ATTRIBUTE# true")
+: ENDIF
+
+! Sandbox ID
+: IF &UC4RB_VER_SANDBOX# <> ""
+:     SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_SANDBOX#
+:     INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
+:     SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -sandboxid &UC4RB_ESCAPED_STRING#")
+: ENDIF
+
+: PRINT "Command executed :: &UC4RB_CMD#"
+
+  &UC4RB_CMD#
+
+!------------------------------------------Check error level --------------------------------------------------------------------------------------------------------
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@WIN]]></MSCRI>
+</SCRIPT>
+<OUTPUTSCAN state="1">
+<Inherit>N</Inherit>
+<filterobjects/>
+<HostFsc/>
+<LoginFsc/>
+</OUTPUTSCAN>
+<POST_SCRIPT mode="1" replacementmode="1" state="1">
+<OSCRI><![CDATA[:INC PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_SCAN_INFO]]></OSCRI>
+</POST_SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBS_WINDOWS>
+</uc-export>
