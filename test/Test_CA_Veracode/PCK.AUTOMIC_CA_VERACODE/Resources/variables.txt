@@ -7,9 +7,6 @@ Resource          ../../../Env/default.txt
 ${API_ID}         503a96d0371d33f57b32d21f7094f54c
 ${API_Key}        5785c72f2445d1ea16567210b646ac3a1038d9416875ca9241dda37e49efd2e878f493bce2cc686dc93d5ca471f3bd7eb138ab601271bc4e04409bb6dc5ed9cd
 ${Veracode_CLI_Location}    C:\\Users\\rajatkaushik\\Documents\\My Received Files\\jars\\jars\\VeracodeJavaAPI.jar
-#----Create Team--------------------------------    --------------------------------------------------------
-${Team_Name}      SpartanTeam
-${Team_Members}    extata
 #----Get Prescan Results----------------------------------------------------------------------------------------
 ${Application_ID}    384912
 ${Build_ID}       12
@@ -20,9 +17,6 @@ ${Team_ID}        12
 ${ApplicationID}    385163
 ${Module}         923694273
 ${SandboxID}      482130
-${API_ID}         ADD_API_ID_HERE
-${API_Key}        ADD_API_KEY_HERE
-${Veracode_CLI_Location}    ${EXECDIR}\\VeracodeJavaAPI.jar
 #----Create Team----------------------------------------------------------------------------------------
 ${Team_Name}      SpartanTeam
 ${Team_Name_1}    AutomationTeam
