@@ -16,12 +16,26 @@
 =Setup=
 
 =Variables=
-PCK.AUTOMIC_CA_VERACODE.PUB.VARA.PACKAGE_PARAMETERS
-* API version and https port can be configured in this VARA based on your environment.
+
+=Common Inputs=
+* API ID			       : Provide API ID for authentication. E.g. 4c668506111a7e
+* API Key                        : Provide API key for authentication.
+* Veracode CLI Location: Provide the path for Veracode Java CLI. E.g. C:\VeracodeJavaAPI\VeracodeJavaAPI.jar
+* Proxy Host		       : Specify proxy host. E.g. https://center.veracode.com
+* Proxy Port                    : Specify proxy port. E.g. 443
+* Proxy User                   : Specify proxy username. E.g. username
+* Proxy Password           : Specify password to proxy username.	
+* Sudo Username           : The username to be used for the sudo command. 
+* Options                         : Run using sudo password (and sudo username if specified).
+* Sudo Password            : The password to be used for the sudo command.	
+* Overwrite Agent		: Overwrites the default agent
+* Overwrite Login		: Overwrites the default login
 
 =Actions=
 Following actions are supported.
 
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_TEAM
+* Action Description: This action creates a team along with member if provided.
 ]]></DOC>
 </DOCU_Docu>
 </DOCU>
