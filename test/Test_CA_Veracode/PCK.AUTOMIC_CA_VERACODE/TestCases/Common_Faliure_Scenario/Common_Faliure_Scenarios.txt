@@ -12,7 +12,7 @@ Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
 *** Test Cases ***    OK_NOK    APIID             APIKEY        VeracodeCLILocation         ApplicationID        Modules      ScanOptions    SandboxID
-Assertion with Invalid Rest API ID
+Assertion with Invalid API ID
                       [Tags]    main_scenarios
                       NOK       Invalid           ${API_KEY}    ${Veracode_CLI_Location}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
 
