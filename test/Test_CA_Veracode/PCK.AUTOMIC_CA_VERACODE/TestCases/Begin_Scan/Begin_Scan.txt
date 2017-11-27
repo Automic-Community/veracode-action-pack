@@ -32,7 +32,7 @@ Begin Scan with invalid Sandbox ID
                       NOK       ${Application_ID}    ${Module}    ${EMPTY}                      Invalid
 
 Assert Application ID as mandatory field
-                      NOK       ${EMPTY}             ${Module}    ${EMPTY}                      ${Sandbox_ID}
+                      NOK       ${EMPTY}             ${EMPTY}     Scan All Top Level Modules    ${Sandbox_ID}
 
 Assert Modules and Scan option as conditional field
                       NOK       ${Application_ID}    ${EMPTY}     ${EMPTY}                      ${Sandbox_ID}
