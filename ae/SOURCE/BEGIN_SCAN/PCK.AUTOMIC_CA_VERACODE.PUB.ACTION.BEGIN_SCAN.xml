@@ -21,11 +21,11 @@
 <IntAccount/>
 <AutoDeactNo>0</AutoDeactNo>
 <AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
-<AutoDeactErrorFree>0</AutoDeactErrorFree>
-<DeactWhen/>
-<AutoDeactAlways>1</AutoDeactAlways>
+<AutoDeactErrorFree>1</AutoDeactErrorFree>
+<DeactWhen>ANY_OK</DeactWhen>
+<AutoDeactAlways>0</AutoDeactAlways>
 <DeactDelay>0</DeactDelay>
-<ActAtRun>0</ActAtRun>
+<ActAtRun>1</ActAtRun>
 <UC4Priority>0</UC4Priority>
 <PassPriority>0</PassPriority>
 <MaxParallel2>0</MaxParallel2>
@@ -33,7 +33,7 @@
 <MpElse1>1</MpElse1>
 <MpElse2>0</MpElse2>
 <TZ/>
-<RWhen>ANY_OK</RWhen>
+<RWhen/>
 <RExecute/>
 <JPA_SubType/>
 </ATTR_JOBP>
