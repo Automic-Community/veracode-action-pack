@@ -25,6 +25,9 @@ Begin Scan with Invalid Application ID
 Begin Scan with invalid Module
                       NOK       ${Application_ID}    Invalid      ${EMPTY}                      ${Sandbox_ID}
 
+Begin Scan with invalid Sandbox ID
+                      NOK       ${Application_ID}    Invalid      ${EMPTY}                      Invalid
+
 Assert Application ID as mandatory field
                       NOK       ${EMPTY}             ${Module}    ${EMPTY}                      ${Sandbox_ID}
 
