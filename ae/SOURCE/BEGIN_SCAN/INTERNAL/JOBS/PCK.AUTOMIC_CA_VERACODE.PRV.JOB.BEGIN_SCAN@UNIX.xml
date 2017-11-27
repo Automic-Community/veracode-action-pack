@@ -158,6 +158,11 @@
 : STOP MSG, 50, "Do not select both Modules and Scan options."
 :ENDIF
 
+:SET &NUM_CHECK#=ISNUMERIC(&UC4RB_VER_SANDBOX#)
+:IF &NUM_CHECK# <> 'Y'
+:  STOP MSG, 50, "Incorrect Sandbox ID, it can only be numeric."
+:ENDIF
+
 : SET &ACTION_NAME# = "beginScan"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@UNIX
 
