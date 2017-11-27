@@ -4,9 +4,19 @@ Resource          ../../../Env/default.txt
 *** Variables ***
 #---- Promptset Fields --------------------------------------------------------------------------------------
 #----Global Variables----------------------------------------------------------------------------------------
-${API_ID}         ADD_API_ID_HERE
-${API_Key}        ADD_API_KEY_HERE
-${Veracode_CLI_Location}    ${EXECDIR}\\VeracodeJavaAPI.jar
+${API_ID}         503a96d0371d33f57b32d21f7094f54c
+${API_Key}        5785c72f2445d1ea16567210b646ac3a1038d9416875ca9241dda37e49efd2e878f493bce2cc686dc93d5ca471f3bd7eb138ab601271bc4e04409bb6dc5ed9cd
+${Veracode_CLI_Location}    C:\\Users\\rajatkaushik\\Documents\\My Received Files\\jars\\jars\\VeracodeJavaAPI.jar
+#----Get Prescan Results----------------------------------------------------------------------------------------
+${Application_ID}    EMPTY
+${Build_ID}       12
+${Sandbox_ID}     482130
+#----Delete Team----------------------------------------------------------------------------------------
+${Team_ID}        12
+#----Begin Scan----------------------------------------------------------------------------------------
+${Application_ID}    384912
+${Module}         923694273
+${Sandbox_ID}     482130
 #----Create Team----------------------------------------------------------------------------------------
 ${Team_Name}      SpartanTeam
 ${Team_Name_1}    AutomationTeam
