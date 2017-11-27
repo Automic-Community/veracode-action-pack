@@ -19,6 +19,9 @@ Begin Scan with valid Inputs with providing module
 Begin Scan with valid Inputs without providing module
                       OK        ${Application_ID}    ${EMPTY}     Scan All Top Level Modules    ${Sandbox_ID}
 
+Begin Scan with valid Inputs with providing module and Scan option Both
+                      NOK       ${Application_ID}    ${Module}    Scan All Top Level Modules    ${Sandbox_ID}
+
 Begin Scan with Invalid Application ID
                       NOK       Invalid              ${Module}    ${EMPTY}                      ${Sandbox_ID}
 
@@ -26,10 +29,13 @@ Begin Scan with invalid Module
                       NOK       ${Application_ID}    Invalid      ${EMPTY}                      ${Sandbox_ID}
 
 Begin Scan with invalid Sandbox ID
-                      NOK       ${Application_ID}    Invalid      ${EMPTY}                      Invalid
+                      NOK       ${Application_ID}    ${Module}    ${EMPTY}                      Invalid
 
 Assert Application ID as mandatory field
                       NOK       ${EMPTY}             ${Module}    ${EMPTY}                      ${Sandbox_ID}
+
+Assert Modules and Scan option as conditional field
+                      NOK       ${Application_ID}    ${EMPTY}     ${EMPTY}                      ${Sandbox_ID}
 
 *** Keywords ***
 Startup
