@@ -14,7 +14,7 @@ Resource          ../../Resources/actions.txt
 *** Test Cases ***    OK_NOK    FirstName         LastName        Roles       Email           Teams
 Create User with valid inputs with not giving team name
                       [Tags]    main_scenarios
-                      OK        ${First_Name}     ${Last_Name}    ${Role}     ${Email_ID}     ${Team}
+                      OK        ${First_Name}     ${Last_Name}    ${Role}     ${Email_ID}     ${EMPTY}
 
 Create User With Valid Input and giving team name
                       OK        ${First_Name}     ${Last_Name}    ${Role}     ${Email_ID2}    ${Team}
