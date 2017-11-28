@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.CREATE_USER@UNIX">
+<JOBS_UNIX AttrType="UNIX" name="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.DELETE_TEAM@UNIX">
 <XHEADER state="1">
-<Title>Create User</Title>
+<Title>Delete Team</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -25,14 +25,14 @@
 <ExtRepDef>1</ExtRepDef>
 <ExtRepAll>0</ExtRepAll>
 <ExtRepNone>0</ExtRepNone>
-<AutoDeactNo>1</AutoDeactNo>
+<AutoDeactNo>0</AutoDeactNo>
 <AutoDeact1ErrorFree>0</AutoDeact1ErrorFree>
 <AutoDeactErrorFree>0</AutoDeactErrorFree>
 <DeactWhen/>
 <DeactDelay>0</DeactDelay>
-<AutoDeactAlways>0</AutoDeactAlways>
+<AutoDeactAlways>1</AutoDeactAlways>
 <AttDialog>0</AttDialog>
-<ActAtRun>1</ActAtRun>
+<ActAtRun>0</ActAtRun>
 <Consumption>0</Consumption>
 <UC4Priority>0</UC4Priority>
 <MaxParallel2>0</MaxParallel2>
@@ -115,67 +115,31 @@
 
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CONNECTION_PARAM_LOG
 
-: SET &UC4RB_LOGGING_PARAMETER# = "Firstname"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_FIRST_NAME#
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
-
-: SET &UC4RB_LOGGING_PARAMETER# = "Lastname"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_LAST_NAME#
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
-
-: SET &UC4RB_LOGGING_PARAMETER# = "Roles"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_ROLES#
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
-
-: SET &UC4RB_LOGGING_PARAMETER# = "Email"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_EMAIL#
-: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
-
-: SET &UC4RB_LOGGING_PARAMETER# = "Teams"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_TEAMS#
+: SET &UC4RB_LOGGING_PARAMETER# = "Team ID"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_TEAM_ID#
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
-!------------------------------------------ Running clear file command -------------------------------------------------------------------------------------------
-: SET &ACTION_NAME# = "createuser"
+!------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
+! Status messages
+: SET &UC4RB_LOGGING_INFO# = "********  DELETE TEAM ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** DELETE TEAM ACTION EXECUTION FAILED ********"
+
+!------------------------------------------ Running Delete team command -------------------------------------------------------------------------------------------
+: SET &ACTION_NAME# = "deleteteam"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@UNIX
 
-! First name
-: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_FIRST_NAME#
+! Team name
+: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_TEAM_ID#
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
-: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -firstname &UC4RB_ESCAPED_STRING#")
-
-! Last name
-: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_LAST_NAME#
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
-: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -lastname &UC4RB_ESCAPED_STRING#")
-
-! Roles
-: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_ROLES#
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
-: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -roles &UC4RB_ESCAPED_STRING#")
-
-! Email
-: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_EMAIL#
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
-: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -emailaddress &UC4RB_ESCAPED_STRING#")
-
-! Teams
-: IF &UC4RB_VER_TEAMS# <> ""
-:    SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_TEAMS#
-:    INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
-:    SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -teams &UC4RB_ESCAPED_STRING#")
-: ENDIF
+: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -teamid &UC4RB_ESCAPED_STRING#")
 
 : PRINT "Command executed :: &UC4RB_CMD#"
 
-  &UC4RB_CMD#
+ &UC4RB_CMD#
 
-!------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
-! Status messages
-: SET &UC4RB_LOGGING_INFO# = "********  CREATE USER ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** CREATE USER ACTION EXECUTION FAILED ********"
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.JOB_OUTPUT@UNIX
 
 !------------------------------------------Check error level --------------------------------------------------------------------------------------------------------
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@UNIX
@@ -188,7 +152,7 @@
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI><![CDATA[:INC PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_USER_INFO]]></OSCRI>
+<OSCRI><![CDATA[: INC PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_ACTION_OUTPUT]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>

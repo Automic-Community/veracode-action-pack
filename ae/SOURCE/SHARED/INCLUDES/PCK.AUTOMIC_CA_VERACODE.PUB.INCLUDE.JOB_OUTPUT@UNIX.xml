@@ -15,9 +15,7 @@ then
    exit $execcode
 fi
 
-cat &UC4RB_TEMP_FILE_PATH#
-
-]]></MSCRI>
+cat &UC4RB_TEMP_FILE_PATH#]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
