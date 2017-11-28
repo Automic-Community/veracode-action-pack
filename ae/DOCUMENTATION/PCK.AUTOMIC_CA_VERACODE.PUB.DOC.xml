@@ -36,7 +36,12 @@ Following actions are supported.
 
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_TEAM
 * Action Description: This action creates a team along with member if provided.
-]]></DOC>
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_TEAM
+* Action Description: This action deletes a specified team of users.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.BEGIN_SCAN
+* Action Description: This action runs the full scan of the application.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
