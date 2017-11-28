@@ -7,6 +7,10 @@ Resource          ../../../Env/default.txt
 ${API_ID}         ADD_API_ID_HERE
 ${API_Key}        ADD_API_KEY_HERE
 ${Veracode_CLI_Location}    ${EXECDIR}\\VeracodeJavaAPI.jar
+${Proxy_Host}     192.168.44.75
+${Proxy_Port}     808
+${Proxy_User}     ${EMPTY}
+${Proxy_Password}    ${EMPTY}
 #----Delete Team----------------------------------------------------------------------------------------
 ${Team_ID}        99132
 #----Begin Scan----------------------------------------------------------------------------------------
@@ -20,3 +24,11 @@ ${Team_Name_2}    HermesTeam
 ${Team_Name_3}    RobotTeam
 ${Team_Members}    ankit.taneja@ext.automic.com,shruti.nambiar@ext.automic.com
 ${Member}         ankit.taneja@ext.automic.com
+#----Create User----------------------------------------------------------------------------------------
+${First_Name}     Alan
+${Last_Name}      Cartor
+${Role}           Creator
+${Email_ID}       alan.walker15@example.com
+${Email_ID2}      alan.walker16@example.com
+${Email_ID3}      alan.walker17@example.com
+${Team}           Spartan
