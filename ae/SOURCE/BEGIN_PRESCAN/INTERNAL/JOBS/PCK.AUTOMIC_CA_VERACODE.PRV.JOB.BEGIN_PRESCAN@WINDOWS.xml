@@ -140,7 +140,11 @@
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
-!------------------------------------------ Running clear file command -------------------------------------------------------------------------------------------
+!------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
+! Status messages
+: SET &UC4RB_LOGGING_INFO# = "********  BEGIN PRESCAN ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** BEGIN PRESCAN ACTION EXECUTION FAILED ********"
+!------------------------------------------ Running begin prescan command -------------------------------------------------------------------------------------------
 : SET &ACTION_NAME# = "beginprescan"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@WIN
 
@@ -173,10 +177,7 @@
 
  &UC4RB_CMD#
 
-!------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
-! Status messages
-: SET &UC4RB_LOGGING_INFO# = "********  BEGIN PRESCAN ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** BEGIN PRESCAN ACTION EXECUTION FAILED ********"
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.JOB_OUTPUT@WIN
 
 !------------------------------------------Check error level --------------------------------------------------------------------------------------------------------
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@WIN]]></MSCRI>

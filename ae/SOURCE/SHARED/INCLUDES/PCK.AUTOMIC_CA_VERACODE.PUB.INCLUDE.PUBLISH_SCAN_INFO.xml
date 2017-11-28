@@ -20,7 +20,6 @@
 :                 SET &UC4RB_VER_RESPONSE# = STR_CAT(&UC4RB_VER_RESPONSE#, &NL#)
 :            ENDPROCESS
 :            CLOSE_PROCESS &HND#
-:            PRINT &UC4RB_VER_RESPONSE#
 
 !            Reading the xml
 :            SET &XMLDOCU# = XML_OPEN(STRING,&UC4RB_VER_RESPONSE#)

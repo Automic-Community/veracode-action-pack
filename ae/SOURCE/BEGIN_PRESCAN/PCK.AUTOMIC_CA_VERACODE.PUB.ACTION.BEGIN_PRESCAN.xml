@@ -467,7 +467,44 @@
 <MSCRI/>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[= Action name =
+PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.BEGIN_PRESCAN
+
+= General description =
+This action initiates the prescan of an application.
+
+= Failure Conditions =
+* If the user tries to initiate the prescan of an application for which the prescan is already running.
+
+= Inputs =
+* Application ID: 						Provide application ID which will be prescanned. E.g. 23456
+* Auto Scan:						        Specify if you want to automatically submit a full scan of this application following a successful prescan. If not specified it is set based on the previous scan settings and switch value. E.g. No
+* Sandbox ID:							Enter the ID of the sandbox if you are performing a sandbox scan. E.g. 12345
+* Scan All Nonfatal Top Level Modules: 		If Auto Scan field is set to 'No', this parameter is ignored. If the field is set to 'Yes' and if the application has more than one module, and at least one of the top-level modules does not have any fatal errors, it starts the scan for those modules after prescan is complete. E.g. Yes
+
+= Behavior =
+(none)
+
+=Return Value=
+* UC4RB_VER_RESPONSE:  Build info XML content
+* UC4RB_VER_BUILD_ID: Build ID of the created team.
+
+= Outputs =
+* Return code is 0 in case of success.
+* Return code is non-zero in case of failure.
+
+= Rollback =
+(none)
+
+= Logging =
+AE logs will be displayed in the AE report.
+
+= Example =
+* Application ID: 					        23456
+* Auto Scan:						        No
+* Sandbox ID:							12345
+* Scan All Nonfatal Top Level Modules: 		Yes
+]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
