@@ -24,7 +24,7 @@ ${Team_Name_2}    HermesTeam
 ${Team_Name_3}    RobotTeam
 ${Team_Members}    ankit.taneja@ext.automic.com,shruti.nambiar@ext.automic.com
 ${Member}         ankit.taneja@ext.automic.com
-#----Create Team----------------------------------------------------------------------------------------
+#----Create User----------------------------------------------------------------------------------------
 ${First_Name}     Alan
 ${Last_Name}      Cartor
 ${Role}           Creator
