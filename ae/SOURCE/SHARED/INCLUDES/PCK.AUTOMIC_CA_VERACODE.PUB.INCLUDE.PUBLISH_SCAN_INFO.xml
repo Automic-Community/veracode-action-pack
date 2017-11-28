@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBI name="PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_TEAM_INFO">
+<JOBI name="PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PUBLISH_SCAN_INFO">
 <HEADER state="1">
-<Title>publich resulted xml and team id</Title>
+<Title>Scan Info</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <OH_SubType/>
@@ -9,7 +9,7 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[:SET &STATUS# = GET_UC_OBJECT_STATUS(,,"RETCODE")
 :SET &UC4RB_VER_RESPONSE# = ""
-:SET &UC4RB_VER_TEAM_ID# = ""
+:SET &UC4RB_VER_BUILD_ID# = ""
 
 :IF &STATUS# EQ 0
 :            SET &NL# = UC_CRLF()
@@ -23,7 +23,7 @@
 
 !            Reading the xml
 :            SET &XMLDOCU# = XML_OPEN(STRING,&UC4RB_VER_RESPONSE#)
-!                 A bad XML string either leads to run time error, or returns a return code which can be read with sys_last_err_nr()
+!                 A bad XML string either leads to run time error, or returns a return code which can be read with sys_last_err_nr().
 :                 SET &ERROR# = sys_last_err_nr()
 :                 IF &ERROR# > 0
 :                     SET &ERROR_DETAILS# = sys_last_err_ins()
@@ -32,27 +32,27 @@
 :                     MODIFY_STATE RETCODE=50
 :                 ENDIF
 
-!                 Read team id from the response
+!                 Read build id from the response
 :                 SET &NODE_NAME# = XML_GET_NODE_NAME(&XMLDOCU#)
-:                 IF &NODE_NAME# = "teaminfo"
-:                     SET &UC4RB_VER_TEAM_ID# = XML_GET_ATTRIBUTE(&XMLDOCU#, "@team_id")
+:                 IF &NODE_NAME# = "buildinfo"
+:                     SET &UC4RB_VER_BUILD_ID# = XML_GET_ATTRIBUTE(&XMLDOCU#, "@build_id")
 :                 ENDIF
 :            XML_CLOSE
 
-!            check if Team id is found or not
-:            IF &UC4RB_VER_TEAM_ID# = ""
-:                  PRINT "ERROR: Unable to retrieve team id."
-:                  MODIFY_STATE STATUS_TEXT="Unable to retrieve team id!!"
+!            check if Build id is found or not
+:            IF &UC4RB_VER_BUILD_ID# = ""
+:                  PRINT "ERROR: Unable to retrieve build id."
+:                  MODIFY_STATE STATUS_TEXT="Unable to retrieve build id!!"
 :                  MODIFY_STATE RETCODE=50
 :            ENDIF
-
-!			 Delete temporary file
-:			 SET &UC4RB_DELETE_FILE#=&UC4RB_TEMP_FILE_PATH#
-:			 INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.DELETE_FILE
+:            SET &UC4RB_DELETE_FILE#=&UC4RB_TEMP_FILE_PATH#
+:            INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.DELETE_FILE
 :ENDIF
 
 :PUBLISH &UC4RB_VER_RESPONSE#,,"WORKFLOW"
-:PUBLISH &UC4RB_VER_TEAM_ID#,,"WORKFLOW"]]></MSCRI>
+:PUBLISH &UC4RB_VER_BUILD_ID#,,"WORKFLOW"
+
+]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>

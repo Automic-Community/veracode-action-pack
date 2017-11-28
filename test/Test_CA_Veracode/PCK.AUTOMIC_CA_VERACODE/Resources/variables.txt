@@ -7,6 +7,12 @@ Resource          ../../../Env/default.txt
 ${API_ID}         ADD_API_ID_HERE
 ${API_Key}        ADD_API_KEY_HERE
 ${Veracode_CLI_Location}    ${EXECDIR}\\VeracodeJavaAPI.jar
+#----Delete Team----------------------------------------------------------------------------------------
+${Team_ID}        99132
+#----Begin Scan----------------------------------------------------------------------------------------
+${Application_ID}    384912
+${Module}         923694273
+${Sandbox_ID}     482130
 #----Create Team----------------------------------------------------------------------------------------
 ${Team_Name}      SpartanTeam
 ${Team_Name_1}    AutomationTeam

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBS_WINDOWS AttrType="WINDOWS" name="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.CREATE_TEAM@WINDOWS">
+<JOBS_WINDOWS AttrType="WINDOWS" name="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.BEGIN_SCAN@WINDOWS">
 <XHEADER state="1">
-<Title>Create Team</Title>
+<Title>Begin Scan</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -117,50 +117,102 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[@echo off
 
+: DEFINE &STRING_ARR#, string, 30
+: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER
+
 !----------------------------------------------- Parameter validation ---------------------------------------------------------------------------------------------
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CONNECTION_PARAM_LOG
 
-: SET &UC4RB_LOGGING_PARAMETER# = "Team Name"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_TEAM#
+: SET &UC4RB_LOGGING_PARAMETER# = "Application ID"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_APP_ID#
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
-: SET &UC4RB_LOGGING_PARAMETER# = "Member Name"
-: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_MEMBER#
+: SET &UC4RB_LOGGING_PARAMETER# = "Modules"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_MODULES#
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+
+: SET &UC4RB_LOGGING_PARAMETER# = "Scan Options"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_SCAN_OPTIONS#
+: INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
+
+: SET &UC4RB_LOGGING_PARAMETER# = "Sandbox ID"
+: SET &UC4RB_LOGGING_PARAMETER_VAL# = &UC4RB_VER_SANDBOX#
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.PARAM
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
+
 !------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
 ! Status messages
-: SET &UC4RB_LOGGING_INFO# = "********  CREATE TEAM ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** CREATE TEAM ACTION EXECUTION FAILED ********"
-!------------------------------------------ Running create team command -------------------------------------------------------------------------------------------
-: SET &ACTION_NAME# = "createteam"
+: SET &UC4RB_LOGGING_INFO# = "********  BEGIN SCAN ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** BEGIN SCAN ACTION EXECUTION FAILED ********"
+
+!------------------------------------------ Running begin scan command -------------------------------------------------------------------------------------------
+!Check on modules and scan options
+:SET &CHECK# = 0
+:IF &UC4RB_VER_MODULES# <> ""
+:  SET &CHECK# = &CHECK# + 1
+:ENDIF
+
+:IF &UC4RB_VER_SCAN_OPTIONS# <> ""
+:   SET &CHECK# = &CHECK# + 1
+:ENDIF
+
+:IF &CHECK# = 0
+: STOP MSG, 50, "Either Modules or Scan options input must be provided."
+:ENDIF
+
+:IF &CHECK# = 2
+: STOP MSG, 50, "Do not select both Modules and Scan options."
+:ENDIF
+
+: IF &UC4RB_VER_SANDBOX# <> ''
+:  SET &NUM_CHECK#=ISNUMERIC(&UC4RB_VER_SANDBOX#)
+:  IF &NUM_CHECK# <> 'Y'
+:    STOP MSG, 50, "Incorrect Sandbox ID, it can only be numeric."
+:  ENDIF
+:ENDIF
+
+: SET &ACTION_NAME# = "beginScan"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@WIN
 
-! Team name
-: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_TEAM#
+! Application ID
+: SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_APP_ID#
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
-: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -teamname &UC4RB_ESCAPED_STRING#")
+: SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -appid &UC4RB_ESCAPED_STRING#")
 
-! Member name
-: IF &UC4RB_VER_MEMBER# <> ""
-:     SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_MEMBER#
+! Modules
+: IF &UC4RB_VER_MODULES# <> ""
+:     SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_MODULES#
 :     INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
-:     SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -members &UC4RB_ESCAPED_STRING#")
+:     SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -modules &UC4RB_ESCAPED_STRING#")
+: ENDIF
+
+! Scan Modules
+:IF &UC4RB_VER_SCAN_OPTIONS# <> ""
+:     SET &ATTRIBUTE_VARA# = "PCK.AUTOMIC_CA_VERACODE.PRV.VARA.SCAN_OPTIONS"
+:     SET &UC4RB_ATTRIBUTE_NAME# = &UC4RB_VER_SCAN_OPTIONS#
+:     INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ITERATE_VARA
+:     SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#, " -&ATTRIBUTE# true")
+: ENDIF
+
+! Sandbox ID
+: IF &UC4RB_VER_SANDBOX# <> ""
+:     SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_SANDBOX#
+:     INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
+:     SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -sandboxid &UC4RB_ESCAPED_STRING#")
 : ENDIF
 
 : PRINT "Command executed :: &UC4RB_CMD#"
 
   &UC4RB_CMD#
 
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.JOB_OUTPUT@UNIX
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.JOB_OUTPUT@WIN
 
 !------------------------------------------Check error level --------------------------------------------------------------------------------------------------------
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@WIN
-]]></MSCRI>
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@WIN]]></MSCRI>
 </SCRIPT>
 <OUTPUTSCAN state="1">
 <Inherit>N</Inherit>
@@ -169,7 +221,7 @@
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI><![CDATA[: INC PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_TEAM_INFO]]></OSCRI>
+<OSCRI><![CDATA[:INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PUBLISH_SCAN_INFO]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>

@@ -5,8 +5,8 @@ Library           com.automic.robot.itpa.ItpaLibrary
 #---- AE -------------------------
 @{AE}             AUTOMIC    192.168.112.36    2217    100/AUTOMIC/AUTOMIC    AUTOMIC    # system, host, port, user, pass
 #---- Promptset Overwrite Agent -------------------------------------------------------------------------
-@{Promptset_Overwrite_Agent_WIN}    WIN01    LOGIN.WIN01
-@{Promptset_Overwrite_Agent_UNIX}    UNIX01    LOGIN.UNIX01
+@{Promptset_Overwrite_Agent_WIN}    WIN01    LOGIN.ALL
+@{Promptset_Overwrite_Agent_UNIX}    UBUNTU08    LOGIN.ALL
 #---- GLOBAL CONTEXT VARIABLES --------------------------------------------------------------------------
 ${_AE_SYSTEM}     @{AE}[0]
 ${_AE_HOST}       @{AE}[1]
