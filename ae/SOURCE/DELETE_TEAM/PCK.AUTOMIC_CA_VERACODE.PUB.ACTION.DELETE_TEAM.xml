@@ -452,7 +452,37 @@
 <MSCRI/>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[= Action name =
+PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_TEAM
+
+= General description =
+This action deletes a specified team of users.
+
+= Failure Conditions =
+* If the user does not have access to the specified team id.
+
+= Inputs =
+* Team ID:			 Provide ID of the team you want to delete. E.g. 98975
+
+= Behavior =
+* If the user tries to delete an already deleted team id, action will pass.
+
+=Return Value=
+* UC4RB_VER_RESPONSE:  Team list XML content
+
+= Outputs =
+* Return code is 0 in case of success.
+* Return code is non-zero in case of failure.
+
+= Rollback =
+(none)
+
+= Logging =
+AE logs will be displayed in the AE report.
+
+= Example =
+* Team ID:			 98975
+]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
