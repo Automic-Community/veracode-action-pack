@@ -11,25 +11,31 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK    APIID             APIKEY        VeracodeCLILocation         ApplicationID        Modules      ScanOptions    SandboxID
+*** Test Cases ***    OK_NOK    APIID             APIKEY        VeracodeCLILocation         ProxyHost        ProxyPort        ProxyUser        ProxyPassword        ApplicationID        Modules      ScanOptions    SandboxID
 Assertion with Invalid API ID
                       [Tags]    main_scenarios
-                      NOK       Invalid           ${API_KEY}    ${Veracode_CLI_Location}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+                      NOK       Invalid           ${API_KEY}    ${Veracode_CLI_Location}    ${Proxy_Host}    ${Proxy_Port}    ${Proxy_User}    ${Proxy_Password}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
 
 Assertion with invalid API Key
-                      NOK       ${API_ID}         Invalid       ${Veracode_CLI_Location}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+                      NOK       ${API_ID}         Invalid       ${Veracode_CLI_Location}    ${Proxy_Host}    ${Proxy_Port}    ${Proxy_User}    ${Proxy_Password}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
 
 Assertion with invalid Veracode CLI Location
-                      NOK       ${API_ID}         ${API_KEY}    Invalid                     ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+                      NOK       ${API_ID}         ${API_KEY}    Invalid                     ${Proxy_Host}    ${Proxy_Port}    ${Proxy_User}    ${Proxy_Password}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+
+Assertion with invalid Proxy Host
+                      NOK       ${API_ID}         ${API_KEY}    ${Veracode_CLI_Location}    Invalid          ${Proxy_Port}    ${Proxy_User}    ${Proxy_Password}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+
+Assertion with invalid Proxy Port
+                      NOK       ${API_ID}         ${API_KEY}    ${Veracode_CLI_Location}    ${Proxy_Host}    Invalid          ${Proxy_User}    ${Proxy_Password}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
 
 Assert Rest API ID as mandatory field
-                      NOK       ${EMPTY}          ${API_KEY}    ${Veracode_CLI_Location}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+                      NOK       ${EMPTY}          ${API_KEY}    ${Veracode_CLI_Location}    ${Proxy_Host}    ${Proxy_Port}    ${Proxy_User}    ${Proxy_Password}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
 
 Assert API Key as mandatory field
-                      NOK       ${API_ID}         ${EMPTY}      ${Veracode_CLI_Location}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+                      NOK       ${API_ID}         ${EMPTY}      ${Veracode_CLI_Location}    ${Proxy_Host}    ${Proxy_Port}    ${Proxy_User}    ${Proxy_Password}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
 
 Assert Veracode CLI Location as mandatory field
-                      NOK       ${API_ID}         ${API_KEY}    ${EMPTY}                    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
+                      NOK       ${API_ID}         ${API_KEY}    ${EMPTY}                    ${Proxy_Host}    ${Proxy_Port}    ${Proxy_User}    ${Proxy_Password}    ${Application_ID}    ${Module}    ${EMPTY}       ${Sandbox_ID}
 
 *** Keywords ***
 Startup
@@ -38,8 +44,8 @@ Startup
     Connect AE
 
 Common Failure Scenarios
-    [Arguments]    ${OK_NOK}    ${APIID}    ${APIKEY}    ${VeracodeCLILocation}    ${ApplicationID}    ${Modules}
-    ...    ${ScanOptions}    ${SandboxID}
+    [Arguments]    ${OK_NOK}    ${APIID}    ${APIKEY}    ${VeracodeCLILocation}    ${ProxyHost}    ${ProxyPort}
+    ...    ${ProxyUser}    ${ProxyPassword}    ${ApplicationID}    ${Modules}    ${ScanOptions}    ${SandboxID}
     [Documentation]    This test executes the common failure scenarios for action pack with Begin Scan action
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK/FAULT_OTHER. Value of this variable should be OK, NOK.
     ...    -${APIID}: This field specifies API ID for authentication.
@@ -52,13 +58,18 @@ Common Failure Scenarios
     Generate String
     Init Action    ${_BEGIN_SCAN_ACTION}
     Connect to Veracode
-    Connect to Proxy
     Run Keyword If    '${APIID}' == 'Invalid'    Action Set    &UC4RB_VER_API_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_VER_API_ID#    ${APIID}
     Run Keyword If    '${APIKEY}' == 'Invalid'    Action Set    &UC4RB_VER_API_KEY#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_VER_API_KEY#    ${APIKEY}
     Run Keyword If    '${VeracodeCLILocation}' == 'Invalid'    Action Set    &UC4RB_VER_CLI_PATH#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_VER_CLI_PATH#    ${VeracodeCLILocation}
+    Run Keyword If    '${ProxyHost}' == 'Invalid'    Action Set    &UC4RB_VER_PROXY_HOST#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_PROXY_HOST#    ${ProxyHost}
+    Run Keyword If    '${ProxyPort}' == 'Invalid'    Action Set    &UC4RB_VER_PROXY_PORT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_PROXY_PORT#    ${ProxyPort}
+    Action Set    &UC4RB_VER_PROXY_USER#    ${ProxyUser}
+    Action Set    &UC4RB_VER_PROXY_PASS#    ${ProxyPassword}
     Action Set    &UC4RB_VER_APP_ID#    ${ApplicationID}
     Action Set    &UC4RB_VER_MODULES#    ${Modules}
     Action Set    &UC4RB_VER_SCAN_OPTIONS#    ${ScanOptions}

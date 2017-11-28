@@ -7,6 +7,10 @@ Resource          ../../../Env/default.txt
 ${API_ID}         ADD_API_ID_HERE
 ${API_Key}        ADD_API_KEY_HERE
 ${Veracode_CLI_Location}    ${EXECDIR}\\VeracodeJavaAPI.jar
+${Proxy_Host}     192.168.44.75
+${Proxy_Port}     808
+${Proxy_User}     ${EMPTY}
+${Proxy_Password}    ${EMPTY}
 #----Delete Team----------------------------------------------------------------------------------------
 ${Team_ID}        99132
 #----Begin Scan----------------------------------------------------------------------------------------
