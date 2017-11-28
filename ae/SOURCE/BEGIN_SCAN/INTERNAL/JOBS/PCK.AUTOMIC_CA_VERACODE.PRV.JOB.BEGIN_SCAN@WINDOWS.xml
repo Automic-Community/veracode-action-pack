@@ -209,6 +209,8 @@
 
   &UC4RB_CMD#
 
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.JOB_OUTPUT@WIN
+
 !------------------------------------------Check error level --------------------------------------------------------------------------------------------------------
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@WIN]]></MSCRI>
 </SCRIPT>
@@ -219,7 +221,7 @@
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI><![CDATA[:INC PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_SCAN_INFO]]></OSCRI>
+<OSCRI><![CDATA[:INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PUBLISH_SCAN_INFO]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
