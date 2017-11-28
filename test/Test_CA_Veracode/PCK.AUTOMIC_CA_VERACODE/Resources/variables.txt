@@ -18,6 +18,7 @@ ${Member}         ankit.taneja@ext.automic.com
 ${First_Name}     Alan
 ${Last_Name}      Cartor
 ${Role}           Creator
-${Email_ID}       alan.walker1@example.com
-${Email_ID2}      alan.walker@example.com
+${Email_ID}       alan.walker15@example.com
+${Email_ID2}      alan.walker16@example.com
+${Email_ID3}      alan.walker17@example.com
 ${Team}           Spartan

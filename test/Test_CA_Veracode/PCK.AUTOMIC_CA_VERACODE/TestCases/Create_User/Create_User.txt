@@ -14,7 +14,7 @@ Resource          ../../Resources/actions.txt
 *** Test Cases ***    OK_NOK    FirstName         LastName        Roles       Email           Teams
 Create User with valid inputs with not giving team name
                       [Tags]    main_scenarios
-                      OK        ${First_Name}     ${Last_Name}    ${Role}     ${Email_ID}     ${EMPTY}
+                      OK        ${First_Name}     ${Last_Name}    ${Role}     ${Email_ID}     ${Team}
 
 Create User With Valid Input and giving team name
                       OK        ${First_Name}     ${Last_Name}    ${Role}     ${Email_ID2}    ${Team}
@@ -73,7 +73,7 @@ Create User Template
     ...    &UC4RB_VER_TEAMS#    ${Teams}
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
-    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Count Value Should Be    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
 
 Teardown
     Log    *******End Test "CREATE USER"*******
