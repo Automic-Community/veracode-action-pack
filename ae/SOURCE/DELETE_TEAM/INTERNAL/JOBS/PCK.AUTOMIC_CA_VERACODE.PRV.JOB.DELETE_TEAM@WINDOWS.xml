@@ -145,12 +145,7 @@
 
  &UC4RB_CMD#
 
-IF %ERRORLEVEL% NEQ 0 (
-:INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-:INC PCK.ITPA_SHARED.PRV.INCLUDE.CHECK_CMDLINE_CMD@WINDOWS
-)
-
-TYPE &UC4RB_TEMP_FILE_PATH#
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.JOB_OUTPUT@WIN
 
 !------------------------------------------Check error level --------------------------------------------------------------------------------------------------------
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@WIN

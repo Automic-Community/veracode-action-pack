@@ -139,15 +139,7 @@
 
  &UC4RB_CMD#
 
-!Error handling
-execcode=$?
-if [ $execcode -ne 0 ]
-then
-:  INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.ERROR
-   exit $execcode
-fi
-
-cat &UC4RB_TEMP_FILE_PATH#
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.JOB_OUTPUT@UNIX
 
 !------------------------------------------Check error level --------------------------------------------------------------------------------------------------------
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@UNIX
