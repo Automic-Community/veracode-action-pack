@@ -14,3 +14,10 @@ ${Team_Name_2}    HermesTeam
 ${Team_Name_3}    RobotTeam
 ${Team_Members}    ankit.taneja@ext.automic.com,shruti.nambiar@ext.automic.com
 ${Member}         ankit.taneja@ext.automic.com
+#----Create Team----------------------------------------------------------------------------------------
+${First_Name}     Alan
+${Last_Name}      Cartor
+${Role}           Creator
+${Email_ID}       alan.walker1@example.com
+${Email_ID2}      alan.walker@example.com
+${Team}           Spartan

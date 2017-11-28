@@ -1,0 +1,79 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        create_user
+Test Template     Create User Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    FirstName         LastName        Roles       Email           Teams
+Create User with valid inputs with not giving team name
+                      [Tags]    main_scenarios
+                      OK        ${First_Name}     ${Last_Name}    ${Role}     ${Email_ID}     ${EMPTY}
+
+Create User With Valid Input and giving team name
+                      OK        ${First_Name}     ${Last_Name}    ${Role}     ${Email_ID2}    ${Team}
+
+Create User with already existing Email ID
+                      NOK       ${First_Name}     ${Last_Name}    ${Role}     ${Email_ID}     ${Team}
+
+Create User while providing Invalid Role
+                      NOK       ${First_Name}     ${Last_Name}    Invalid     ${Email_ID}     ${Team}
+
+Create User while providing Invalid Email
+                      NOK       ${First_Name}     ${Last_Name}    ${Role}     Invalid         ${Team}
+
+Create User while providing Invalid Team
+                      NOK       ${First_Name}     ${Last_Name}    ${Role}     ${Email_ID3}    Invalid
+
+Assert First Name as Mandatory Field
+                      NOK       ${EMPTY}          ${Last_Name}    ${Role}     ${Email_ID2}    ${Team}
+
+Assert Last Name as Mandatory Field
+                      NOK       ${First_Name}     ${EMPTY}        ${Role}     ${Email_ID2}    ${Team}
+
+Assert Role as Mandatory Field
+                      NOK       ${First_Name}     ${Last_Name}    ${EMPTY}    ${Email_ID2}    ${Team}
+
+Assert Email ID as Mandatory Field
+                      NOK       ${First_Name}     ${Last_Name}    ${Role}     ${EMPTY}        ${Team}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "CREATE USER"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Create User Template
+    [Arguments]    ${OK_NOK}    ${FirstName}    ${LastName}    ${Roles}    ${Email}    ${Teams}
+    [Documentation]    This test starts Create User.
+    ...    -Precondition: To execute valid test, Valid Connection Details should be known to user.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${FirstName}: This field specifies name of the user you are creating.
+    ...    -${LastName}: This field specifies surname of the user you are creating.
+    ...    -${Roles}: This field specifies roles separated by comma. Only human user roles can be specified. It is case sensitive.
+    ...    -${Email}: This field specifies email address of the user you are creating.
+    ...    -${Teams}: This field specifies team names separated by comma. It is case sensitive.
+    Generate String
+    Init Action    ${_CREATE_USER_ACTION}
+    Connect to Veracode
+    Connect to Proxy
+    Action Set    &UC4RB_VER_FIRST_NAME#    ${FirstName}
+    Action Set    &UC4RB_VER_LAST_NAME#    ${LastName}
+    Run Keyword If    '${Roles}' == 'Invalid'    Action Set    &UC4RB_VER_ROLES#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_ROLES#    ${Roles}
+    Run Keyword If    '${Email}' == 'Invalid'    Action Set    &UC4RB_VER_EMAIL#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_EMAIL#    ${Email}
+    Run Keyword If    '${Teams}' == 'Invalid'    Action Set    &UC4RB_VER_TEAMS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_TEAMS#    ${Teams}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Count Value Should Be    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+
+Teardown
+    Log    *******End Test "CREATE USER"*******
