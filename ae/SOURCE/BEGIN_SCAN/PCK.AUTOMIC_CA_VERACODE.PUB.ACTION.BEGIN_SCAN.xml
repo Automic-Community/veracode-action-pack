@@ -474,17 +474,17 @@ PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.BEGIN_SCAN
 This action runs the full scan of the application. The application module/s should be prescanned.
 
 = Failure Conditions =
-If module id and scan modules both are not selected.
-If module id and scan modules both are selected.
+* If module id and scan modules both are not selected.
+* If module id and scan modules both are selected.
 
 = Inputs =
 * Application ID                : Provide application ID which will be scanned. E.g. 383756
 * Modules		  	 : Provide top-level module IDs separated by comma. E.g. 5816412768
 * Scan Options                 : Select an option to scan modules. E.g. Scan Selected Modules
-* Sandbox ID		         : Enter the ID of the sandbox if you are performing a sandbox scan. E.g. 481409
+* Sandbox ID		         : Enter the ID of the sandbox if you are performing a sandbox scan. Validations: Sandbox ID can only be numeric. E.g. 481409
 
 = Behavior =
-If no modules have been selected in the Veracode Platform UI and you use this action with "scan_selected_modules=true", the following is the response:
+* If no modules have been selected in the Veracode Platform UI and you use this action with "scan_selected_modules=true", the following is the response:
 <?xml version="1.0" encoding="UTF-8"?>
 <error>No modules parameter specified</error>
 
@@ -503,8 +503,8 @@ If no modules have been selected in the Veracode Platform UI and you use this ac
 AE logs will be displayed in the AE report.
 
 = Example =
-Application ID                   : 383756 
-Modules	  	                 : 5816412768
+* Application ID                   : 383756 
+* Modules	  	                 : 5816412768
 * Scan Options                 :  Scan Selected Modules
 * Sandbox ID		         : 481409]]></DOC>
 </DOCU_Docu>

@@ -41,7 +41,10 @@ Following actions are supported.
 * Action Description: This action deletes a specified team of users.
 
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.BEGIN_SCAN
-* Action Description: This action runs the full scan of the application.]]></DOC>
+* Action Description: This action runs the full scan of the application.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_PRESCAN_RESULTS
+* Action Description: This action fetches the results of the pre-scan.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>

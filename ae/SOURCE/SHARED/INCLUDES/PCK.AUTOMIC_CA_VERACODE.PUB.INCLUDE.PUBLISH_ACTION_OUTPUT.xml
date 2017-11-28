@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBI name="PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_ACTION_OUTPUT">
+<JOBI name="PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PUBLISH_ACTION_OUTPUT">
 <HEADER state="1">
 <Title>Publish delete team output</Title>
 <ArchiveKey1/>
