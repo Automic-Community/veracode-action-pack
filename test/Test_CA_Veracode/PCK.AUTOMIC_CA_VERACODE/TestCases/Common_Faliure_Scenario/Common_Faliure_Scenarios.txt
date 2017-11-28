@@ -51,6 +51,10 @@ Common Failure Scenarios
     ...    -${APIID}: This field specifies API ID for authentication.
     ...    -${APIKEY}: This field specifies API key for authentication.
     ...    -${VeracodeCLILocation}:This field specifies the path for Veracode Java CLI.
+    ...    -${ProxyHost}: This field specifies proxy host.
+    ...    -${ProxyPort}: This field specifies proxy port.
+    ...    -${ProxyUser}: This field specifies proxy username.
+    ...    -${ProxyPassword}: This field specifies password to proxy username.
     ...    -${ApplicationID}: This field specifies application ID which will be scanned.
     ...    -${Modules}: This field specifies top-level module IDs separated by comma.
     ...    -${ScanOptions}: This field specifies option to scan modules.
