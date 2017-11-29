@@ -1,0 +1,60 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        begin_prescan
+Test Template     Begin Prescan Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    ApplicationID        AutoScan    SandboxID        ScanAllNonfatalTopLevelModules
+Begin PreScan with valid Inputs without providing Sandbox ID
+                      [Tags]    main_scenarios
+                      OK        ${Application_ID}    YES         ${EMPTY}         NO
+
+Begin PreScan with valid Inputs with providing Sandbox ID
+                      OK        ${Application_ID}    NO          ${Sandbox_ID}    YES
+
+Begin PreScan with Invalid Application ID
+                      NOK       Invalid              ${EMPTY}    ${Sandbox_ID}    NO
+
+Begin PreScan with invalid Sandbox ID
+                      NOK       ${Application_ID}    ${EMPTY}    Invalid          NO
+
+Assert Application ID as mandatory field
+                      NOK       ${EMPTY}             NO          ${Sandbox_ID}    NO
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "BEGIN PRESCAN"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Begin Prescan Template
+    [Arguments]    ${OK_NOK}    ${ApplicationID}    ${AutoScan}    ${SandboxID}    ${ScanAllNonfatalTopLevelModules}
+    [Documentation]    This test executes the Begin Prescan for module or application.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK/FAULT_OTHER. Value of this variable should be OK, NOK.
+    ...    -${ApplicationID}: This field specifies application ID which will be scanned.
+    ...    -${Modules}: This field specifies top-level module IDs separated by comma.
+    ...    -${ScanOptions}: This field specifies option to scan modules.
+    ...    -${SandboxID}: This field specifies the ID of the sandbox if you are performing a sandbox scan.
+    Generate String
+    Init Action    ${_BEGIN_PRESCAN_ACTION}
+    Connect to Veracode
+    Connect to Proxy
+    Run Keyword If    '${ApplicationID}' == 'Invalid'    Action Set    &UC4RB_VER_APP_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_APP_ID#    ${ApplicationID}
+    Action Set    &UC4RB_VER_AUTO_SCAN#    ${AutoScan}
+    Run Keyword If    '${SandboxID}' == 'Invalid'    Action Set    &UC4RB_VER_SANDBOX#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_SANDBOX#    ${SandboxID}
+    Action Set    &UC4RB_VER_SCAN_LEVEL#    ${ScanAllNonfatalTopLevelModules}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_BUILD_ID#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_BUILD_ID#
+
+Teardown
+    Log    *******End Test "BEGIN PRESCAN"*******
