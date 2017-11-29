@@ -137,7 +137,12 @@
 
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
-!------------------------------------------ Running clear file command -------------------------------------------------------------------------------------------
+!------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
+! Status messages
+: SET &UC4RB_LOGGING_INFO# = "********  CREATE USER ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** CREATE USER ACTION EXECUTION FAILED ********"
+
+!------------------------------------------ Running create user command -------------------------------------------------------------------------------------------
 : SET &ACTION_NAME# = "createuser"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@UNIX
 
@@ -171,11 +176,7 @@
 : PRINT "Command executed :: &UC4RB_CMD#"
 
   &UC4RB_CMD#
-
-!------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
-! Status messages
-: SET &UC4RB_LOGGING_INFO# = "********  CREATE USER ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** CREATE USER ACTION EXECUTION FAILED ********"
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.JOB_OUTPUT@UNIX
 
 !------------------------------------------Check error level --------------------------------------------------------------------------------------------------------
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@UNIX
@@ -188,7 +189,7 @@
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI><![CDATA[:INC PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_USER_INFO]]></OSCRI>
+<OSCRI><![CDATA[:INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PUBLISH_XML_OUTPUT]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>

@@ -142,10 +142,10 @@
 
 !------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
 ! Status messages
-: SET &UC4RB_LOGGING_INFO# = "********  BEGIN SCAN ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** BEGIN SCAN ACTION EXECUTION FAILED ********"
+: SET &UC4RB_LOGGING_INFO# = "********  GET PRESCAN RESULTS ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** GET PRESCAN RESULTS ACTION EXECUTION FAILED ********"
 
-!------------------------------------------ Running begin scan command -------------------------------------------------------------------------------------------
+!------------------------------------------ Running get prescan command -------------------------------------------------------------------------------------------
 !sandbox id validation
 : IF &UC4RB_VER_SANDBOX# <> ''
 :  SET &NUM_CHECK#=ISNUMERIC(&UC4RB_VER_SANDBOX#)
@@ -200,7 +200,7 @@
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI><![CDATA[: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PUBLISH_ACTION_OUTPUT]]></OSCRI>
+<OSCRI><![CDATA[:INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PUBLISH_XML_OUTPUT]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
