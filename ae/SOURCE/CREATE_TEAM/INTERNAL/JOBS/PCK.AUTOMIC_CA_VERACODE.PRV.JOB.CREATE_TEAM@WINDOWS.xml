@@ -156,7 +156,7 @@
 
   &UC4RB_CMD#
 
-: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.JOB_OUTPUT@UNIX
+: INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.JOB_OUTPUT@WIN
 
 !------------------------------------------Check error level --------------------------------------------------------------------------------------------------------
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.CHECK_JOBSTATUS@WIN

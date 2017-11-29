@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBI name="PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_USER_INFO">
+<JOBI name="PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PUBLISH_XML_OUTPUT">
 <HEADER state="1">
-<Title>publish xml and print in job report</Title>
+<Title>Publish XML output</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <OH_SubType/>
@@ -9,6 +9,7 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[:SET &STATUS# = GET_UC_OBJECT_STATUS(,,"RETCODE")
 :SET &UC4RB_VER_RESPONSE# = ""
+
 
 :IF &STATUS# EQ 0
 :            SET &NL# = UC_CRLF()
@@ -20,19 +21,8 @@
 :            ENDPROCESS
 :            CLOSE_PROCESS &HND#
 
-!            check if xml is found or not
-:            IF &UC4RB_VER_RESPONSE# = ""
-:                  PRINT "ERROR: Unable to retrieve response."
-:                  MODIFY_STATE STATUS_TEXT="Unable to retrieve response!!"
-:                  MODIFY_STATE RETCODE=50
-:            ENDIF
-
-!            Printing in the report
-:            PRINT &UC4RB_VER_RESPONSE#
-
-!			 Delete temporary file
-:			 SET &UC4RB_DELETE_FILE#=&UC4RB_TEMP_FILE_PATH#
-:			 INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.DELETE_FILE
+:            SET &UC4RB_DELETE_FILE#=&UC4RB_TEMP_FILE_PATH#
+:            INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.DELETE_FILE
 :ENDIF
 
 :PUBLISH &UC4RB_VER_RESPONSE#,,"WORKFLOW"]]></MSCRI>
