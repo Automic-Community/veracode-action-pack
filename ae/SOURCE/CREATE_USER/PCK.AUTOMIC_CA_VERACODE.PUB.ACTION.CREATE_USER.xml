@@ -489,7 +489,7 @@ This action creates a user with the given specifications.
 * Teams          : Provide team names separated by comma. It is case sensitive. E.g. Spartan,Hermes  
 
 = Behavior =
-(none)
+* If a non-existing team name is provided in the input, the new user will be created with an empty team.
 
 =Return Value=
 * UC4RB_VER_RESPONSE:  User info XML content
