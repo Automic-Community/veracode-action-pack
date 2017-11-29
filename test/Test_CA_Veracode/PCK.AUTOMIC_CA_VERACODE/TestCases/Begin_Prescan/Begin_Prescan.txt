@@ -14,19 +14,19 @@ Resource          ../../Resources/actions.txt
 *** Test Cases ***    OK_NOK    ApplicationID        AutoScan    SandboxID        ScanAllNonfatalTopLevelModules
 Begin PreScan with valid Inputs without providing Sandbox ID
                       [Tags]    main_scenarios
-                      OK        ${Application_ID}    YES         ${EMPTY}         NO
+                      OK        ${Application_ID}    Yes         ${EMPTY}         No
 
 Begin PreScan with valid Inputs with providing Sandbox ID
-                      OK        ${Application_ID}    NO          ${Sandbox_ID}    YES
+                      OK        ${Application_ID}    No          ${Sandbox_ID}    Yes
 
 Begin PreScan with Invalid Application ID
-                      NOK       Invalid              ${EMPTY}    ${Sandbox_ID}    NO
+                      NOK       Invalid              ${EMPTY}    ${Sandbox_ID}    No
 
 Begin PreScan with invalid Sandbox ID
-                      NOK       ${Application_ID}    ${EMPTY}    Invalid          NO
+                      NOK       ${Application_ID}    ${EMPTY}    Invalid          No
 
 Assert Application ID as mandatory field
-                      NOK       ${EMPTY}             NO          ${Sandbox_ID}    NO
+                      NOK       ${EMPTY}             No          ${Sandbox_ID}    No
 
 *** Keywords ***
 Startup
