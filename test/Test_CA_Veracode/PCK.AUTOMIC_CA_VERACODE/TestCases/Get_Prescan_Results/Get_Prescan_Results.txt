@@ -28,9 +28,6 @@ Get prescan results with invalid Sandbox ID
 Assert Application ID as mandatory field
                       NOK       ${EMPTY}             ${Build_ID}    ${Sandbox_ID}
 
-Assert Build ID and Sendbox ID as optional field
-                      OK        ${Application_ID}    ${EMPTY}       ${EMPTY}
-
 *** Keywords ***
 Startup
     Log    *******Start Test "GET PRESCAN RESULTS"*******
