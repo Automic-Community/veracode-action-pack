@@ -138,6 +138,13 @@
 : SET &UC4RB_LOGGING_ERROR# = "******** BEGIN PRESCAN ACTION EXECUTION FAILED ********"
 
 !------------------------------------------ Running begin prescan command -------------------------------------------------------------------------------------------
+! Sandbox Id validaiton
+: IF &UC4RB_VER_SANDBOX_ID# <> ''
+:  SET &NUM_CHECK#=ISNUMERIC(&UC4RB_VER_SANDBOX_ID#)
+:  IF &NUM_CHECK# <> 'Y'
+:    STOP MSG, 50, "Incorrect Sandbox ID, it can only be numeric."
+:  ENDIF
+:ENDIF
 
 : SET &ACTION_NAME# = "beginprescan"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@UNIX
