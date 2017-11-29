@@ -53,21 +53,22 @@
 <result ChkRExec="0" RElseHalt="0" RElseIgn="0" RElseJPAbend="0" RExecFlag="0" RExecute="" RRepMTimes="0" RRepOn="0" RRepWait="0" RWhen=""/>
 <dynvalues>
 <dyntree>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">
-<UC4RB_VER_API_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM"/>
-<UC4RB_VER_API_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_KEY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_VER_API_KEYs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">
+<UC4RB_VER_API_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS"/>
+<UC4RB_VER_API_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_KEY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_VER_API_KEYs.00>
+<UC4RB_VER_CLI_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_CLI_PATH#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">
-<UC4RB_VER_PROXY_HOSTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_HOST#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
-<UC4RB_VER_PROXY_PASSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PASS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">--10</UC4RB_VER_PROXY_PASSs.00>
-<UC4RB_VER_PROXY_PORTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PORT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
-<UC4RB_VER_PROXY_USERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_USER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">
+<UC4RB_VER_PROXY_HOSTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_HOST#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
+<UC4RB_VER_PROXY_PASSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PASS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">--10</UC4RB_VER_PROXY_PASSs.00>
+<UC4RB_VER_PROXY_PORTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PORT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
+<UC4RB_VER_PROXY_USERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_USER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -138,21 +139,22 @@
 </node>
 <node content="1" id="PRPTS" name="PromptSets" parent="" pref="1" type="PROMPTSET"/>
 <node content="0" id="PPRPTS" name="Parent PromptSets" parent="" type="PPROMPTSET"/>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">
-<UC4RB_VER_API_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM"/>
-<UC4RB_VER_API_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_KEY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_VER_API_KEYs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">
+<UC4RB_VER_API_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS"/>
+<UC4RB_VER_API_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_KEY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_VER_API_KEYs.00>
+<UC4RB_VER_CLI_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_CLI_PATH#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">
-<UC4RB_VER_PROXY_HOSTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_HOST#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
-<UC4RB_VER_PROXY_PASSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PASS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">--10</UC4RB_VER_PROXY_PASSs.00>
-<UC4RB_VER_PROXY_PORTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PORT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
-<UC4RB_VER_PROXY_USERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_USER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">
+<UC4RB_VER_PROXY_HOSTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_HOST#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
+<UC4RB_VER_PROXY_PASSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PASS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">--10</UC4RB_VER_PROXY_PASSs.00>
+<UC4RB_VER_PROXY_PORTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PORT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
+<UC4RB_VER_PROXY_USERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_USER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -223,21 +225,22 @@
 </node>
 <node content="1" id="PRPTS" name="PromptSets" parent="" pref="1" type="PROMPTSET"/>
 <node content="0" id="PPRPTS" name="Parent PromptSets" parent="" type="PPROMPTSET"/>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">
-<UC4RB_VER_API_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM"/>
-<UC4RB_VER_API_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_KEY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_VER_API_KEYs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">
+<UC4RB_VER_API_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS"/>
+<UC4RB_VER_API_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_KEY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_VER_API_KEYs.00>
+<UC4RB_VER_CLI_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_CLI_PATH#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">
-<UC4RB_VER_PROXY_HOSTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_HOST#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
-<UC4RB_VER_PROXY_PASSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PASS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">--10</UC4RB_VER_PROXY_PASSs.00>
-<UC4RB_VER_PROXY_PORTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PORT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
-<UC4RB_VER_PROXY_USERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_USER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">
+<UC4RB_VER_PROXY_HOSTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_HOST#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
+<UC4RB_VER_PROXY_PASSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PASS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">--10</UC4RB_VER_PROXY_PASSs.00>
+<UC4RB_VER_PROXY_PORTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PORT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
+<UC4RB_VER_PROXY_USERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_USER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -295,21 +298,22 @@
 <result ChkRExec="0" RElseHalt="0" RElseIgn="0" RElseJPAbend="0" RExecFlag="0" RExecute="" RRepMTimes="0" RRepOn="0" RRepWait="0" RWhen=""/>
 <dynvalues>
 <dyntree>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">
-<UC4RB_VER_API_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM"/>
-<UC4RB_VER_API_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_KEY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_VER_API_KEYs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">
+<UC4RB_VER_API_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS"/>
+<UC4RB_VER_API_KEYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_API_KEY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS">--10</UC4RB_VER_API_KEYs.00>
+<UC4RB_VER_CLI_PATHs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_CLI_PATH#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">
-<UC4RB_VER_PROXY_HOSTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_HOST#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
-<UC4RB_VER_PROXY_PASSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PASS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS">--10</UC4RB_VER_PROXY_PASSs.00>
-<UC4RB_VER_PROXY_PORTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PORT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
-<UC4RB_VER_PROXY_USERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_USER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS"/>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">
+<UC4RB_VER_PROXY_HOSTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_HOST#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
+<UC4RB_VER_PROXY_PASSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PASS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS">--10</UC4RB_VER_PROXY_PASSs.00>
+<UC4RB_VER_PROXY_PORTs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_PORT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
+<UC4RB_VER_PROXY_USERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_PROXY_USER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -395,17 +399,18 @@
 <Mode>1</Mode>
 </VALUE>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CONNECTION_PARAM" prptmode="1">
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" parent="PRPTS" type="PROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" ontop="1">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.CONNECTION_DETAILS" prptmode="1">
 <UC4RB_VER_API_IDs.00 altview="0" haslist="0"/>
-<UC4RB_VER_API_KEYs.00 altview="0" haslist="0">--10FBA41CCE80A626FF9F1A8BC87ECEB23E141388E66BC9D730</UC4RB_VER_API_KEYs.00>
+<UC4RB_VER_API_KEYs.00 altview="0" haslist="0">--10</UC4RB_VER_API_KEYs.00>
+<UC4RB_VER_CLI_PATHs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.PROXY_DETAILS" prptmode="1">
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" parent="PRPTS" type="PROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" ontop="1">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PUB.PROMPTSET.PROXY_DETAILS" prptmode="1">
 <UC4RB_VER_PROXY_HOSTs.00 altview="0" haslist="0"/>
 <UC4RB_VER_PROXY_PORTs.00 altview="0" haslist="0"/>
 <UC4RB_VER_PROXY_USERs.00 altview="0" haslist="0"/>
@@ -462,7 +467,44 @@
 <MSCRI/>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[= Action name =
+PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.BEGIN_PRESCAN
+
+= General description =
+This action initiates the prescan of an application.
+
+= Failure Conditions =
+* If the user tries to initiate the prescan of an application for which the prescan is already running.
+
+= Inputs =
+* Application ID: 						Provide application ID which will be prescanned. E.g. 23456
+* Auto Scan:						        Specify if you want to automatically submit a full scan of this application following a successful prescan. If not specified it is set based on the previous scan settings and switch value. E.g. No
+* Sandbox ID:							Enter the ID of the sandbox if you are performing a sandbox scan. E.g. 12345
+* Scan All Nonfatal Top Level Modules: 		If Auto Scan field is set to 'No', this parameter is ignored. If the field is set to 'Yes' and if the application has more than one module, and at least one of the top-level modules does not have any fatal errors, it starts the scan for those modules after prescan is complete. E.g. Yes
+
+= Behavior =
+(none)
+
+=Return Value=
+* UC4RB_VER_RESPONSE:  Build info XML content
+* UC4RB_VER_BUILD_ID: Build ID of the created team.
+
+= Outputs =
+* Return code is 0 in case of success.
+* Return code is non-zero in case of failure.
+
+= Rollback =
+(none)
+
+= Logging =
+AE logs will be displayed in the AE report.
+
+= Example =
+* Application ID: 					        23456
+* Auto Scan:						        No
+* Sandbox ID:							12345
+* Scan All Nonfatal Top Level Modules: 		Yes
+]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>

@@ -37,6 +37,9 @@ Following actions are supported.
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_TEAM
 * Action Description: This action creates a team along with member if provided.
 
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.BEGIN_PRESCAN
+* Action Description: This action initiates the prescan of an application.
+
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_USER
 * Action Description: This action creates a user with the given specifications.
 
