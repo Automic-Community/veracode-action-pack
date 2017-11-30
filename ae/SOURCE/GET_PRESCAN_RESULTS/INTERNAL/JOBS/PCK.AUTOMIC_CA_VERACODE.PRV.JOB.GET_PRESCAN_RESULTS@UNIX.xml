@@ -136,21 +136,6 @@
 : SET &UC4RB_LOGGING_ERROR# = "******** GET PRESCAN RESULTS ACTION EXECUTION FAILED ********"
 
 !------------------------------------------ Running get prescan results command -------------------------------------------------------------------------------------------
-!sandbox id validation
-: IF &UC4RB_VER_SANDBOX# <> ''
-:  SET &NUM_CHECK#=ISNUMERIC(&UC4RB_VER_SANDBOX#)
-:  IF &NUM_CHECK# <> 'Y'
-:    STOP MSG, 50, "Incorrect Sandbox ID, it can only be numeric."
-:  ENDIF
-:ENDIF
-
-!build id validation
-: IF &UC4RB_VER_BUILD_ID# <> ''
-:  SET &NUM_CHECK#=ISNUMERIC(&UC4RB_VER_BUILD_ID#)
-:  IF &NUM_CHECK# <> 'Y'
-:    STOP MSG, 50, "Incorrect Build ID, it can only be numeric."
-:  ENDIF
-:ENDIF
 
 : SET &ACTION_NAME# = "GetPreScanResults"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@UNIX
@@ -162,14 +147,21 @@
 
 ! Build Id
 : IF &UC4RB_VER_BUILD_ID# <> ""
+:  SET &NUM_CHECK#=ISNUMERIC(&UC4RB_VER_BUILD_ID#)
+:     IF &NUM_CHECK# <> 'Y'
+:       STOP MSG, 50, "Incorrect Build ID, it can only be numeric."
+:     ENDIF
 :     SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_BUILD_ID#
 :     INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
 :     SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -buildid &UC4RB_ESCAPED_STRING#")
 : ENDIF
 
-
 ! Sandbox ID
 : IF &UC4RB_VER_SANDBOX# <> ""
+:     SET &NUM_CHECK#=ISNUMERIC(&UC4RB_VER_SANDBOX#)
+:     IF &NUM_CHECK# <> 'Y'
+:       STOP MSG, 50, "Incorrect Sandbox ID, it can only be numeric."
+:     ENDIF
 :     SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_SANDBOX#
 :     INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@UNIX
 :     SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -sandboxid &UC4RB_ESCAPED_STRING#")
