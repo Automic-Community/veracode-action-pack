@@ -1,0 +1,67 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        get_prescan_results
+Test Template     Get Prescan Results Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    ApplicationID        BuildID        SandboxID
+Get_Prescan_Results
+                      [Tags]    main_scenarios
+                      OK        ${Application_ID}    ${EMPTY}       ${EMPTY}
+
+Get prescan results with Invalid Application ID
+                      NOK       Invalid              ${Build_ID}    ${Sandbox_ID}
+
+Get prescan results with invalid Build ID
+                      NOK       ${Application_ID}    Invalid        ${EMPTY}
+
+Get prescan results with invalid Sandbox ID
+                      NOK       ${Application_ID}    ${EMPTY}       Invalid
+
+Get precan results with Application ID and build ID
+                      OK        ${Application_ID}    ${Build_ID}    ${EMPTY}
+
+Get precan results with Application ID and sandbox ID
+                      OK        ${Application_ID}    ${EMPTY}       ${Sandbox_ID}
+
+Get prescan result with Application ID Build ID and sandbox ID
+                      OK        ${Application_ID}    ${Build_ID}    ${Sandbox_ID}
+
+Assert Application ID as mandatory field
+                      NOK       ${EMPTY}             ${Build_ID}    ${Sandbox_ID}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "GET PRESCAN RESULTS"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Get Prescan Results Template
+    [Arguments]    ${OK_NOK}    ${ApplicationID}    ${BuildID}    ${SandboxID}
+    [Documentation]    This test executes the Get prescan results for application ID, build ID and Sandbox ID
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK/FAULT_OTHER. Value of this variable should be OK, NOK.
+    ...    -${ApplicationID}: This field specifies Provide ID of the prescanned application.
+    ...    -${BuildID}: This field specifies Provide Build ID of the prescan. If empty system gets recent prescan results.
+    ...    -${SandboxID}: This field specifies to enter the ID of the sandbox if you performed a sandbox scan.
+    Generate String
+    Init Action    ${_GET_PRESCAN_RESULTS_ACTION}
+    Connect to Veracode
+    Connect to Proxy
+    Run Keyword If    '${ApplicationID}' == 'Invalid'    Action Set    &UC4RB_VER_APP_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_APP_ID#    ${ApplicationID}
+    Run Keyword If    '${BuildID}' == 'Invalid'    Action Set    &UC4RB_VER_APP_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_BUILD_ID#    ${BuildID}
+    Run Keyword If    '${SandboxID}' == 'Invalid'    Action Set    &UC4RB_VER_SANDBOX#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_SANDBOX#    ${SandboxID}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+
+Teardown
+    Log    *******End Test "GET PRESCAN RESULTS"*******
