@@ -20,10 +20,19 @@ Get prescan results with Invalid Application ID
                       NOK       Invalid              ${Build_ID}    ${Sandbox_ID}
 
 Get prescan results with invalid Build ID
-                      NOK       ${Application_ID}    Invalid        ${Sandbox_ID}
+                      NOK       ${Application_ID}    Invalid        ${EMPTY}
 
 Get prescan results with invalid Sandbox ID
                       NOK       ${Application_ID}    ${EMPTY}       Invalid
+
+Get precan results with Application ID and build ID
+                      OK        ${Application_ID}    ${Build_ID}    ${EMPTY}
+
+Get precan results with Application ID and sandbox ID
+                      OK        ${Application_ID}    ${EMPTY}       ${Sandbox_ID}
+
+Get prescan result with Application ID Build ID and sandbox ID
+                      OK        ${Application_ID}    ${Build_ID}    ${Sandbox_ID}
 
 Assert Application ID as mandatory field
                       NOK       ${EMPTY}             ${Build_ID}    ${Sandbox_ID}
@@ -36,7 +45,7 @@ Startup
 
 Get Prescan Results Template
     [Arguments]    ${OK_NOK}    ${ApplicationID}    ${BuildID}    ${SandboxID}
-    [Documentation]    This test executes the Begin Scan for module or application.
+    [Documentation]    This test executes the Get prescan results for application ID, build ID and Sandbox ID
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK/FAULT_OTHER. Value of this variable should be OK, NOK.
     ...    -${ApplicationID}: This field specifies Provide ID of the prescanned application.
     ...    -${BuildID}: This field specifies Provide Build ID of the prescan. If empty system gets recent prescan results.
@@ -47,7 +56,7 @@ Get Prescan Results Template
     Connect to Proxy
     Run Keyword If    '${ApplicationID}' == 'Invalid'    Action Set    &UC4RB_VER_APP_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_VER_APP_ID#    ${ApplicationID}
-    Run Keyword If    '${Build_ID}' == 'Invalid'    Action Set    &UC4RB_VER_MODULES#    ${Generated_Name}_${Time}    ELSE    Action Set
+    Run Keyword If    '${BuildID}' == 'Invalid'    Action Set    &UC4RB_VER_APP_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_VER_BUILD_ID#    ${BuildID}
     Run Keyword If    '${SandboxID}' == 'Invalid'    Action Set    &UC4RB_VER_SANDBOX#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_VER_SANDBOX#    ${SandboxID}
