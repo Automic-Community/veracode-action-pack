@@ -427,8 +427,8 @@
 <PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_USER" prptmode="1">
 <UC4RB_VER_FIRST_NAMEs.00 altview="0" haslist="0"/>
 <UC4RB_VER_LAST_NAMEs.00 altview="0" haslist="0"/>
-<UC4RB_VER_ROLESs.00 altview="0" haslist="0"/>
 <UC4RB_VER_EMAILs.00 altview="0" haslist="0"/>
+<UC4RB_VER_ROLESs.00 altview="0" haslist="0"/>
 <UC4RB_VER_TEAMSs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
