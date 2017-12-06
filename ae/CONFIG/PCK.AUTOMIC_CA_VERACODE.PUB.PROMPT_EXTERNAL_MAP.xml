@@ -29,6 +29,8 @@
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.BEGIN_PRESCAN/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.BEGIN_SCAN/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.BEGIN_SCAN/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_APPLICATION/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_APPLICATION/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_TEAM/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_TEAM/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_USER/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
