@@ -30,6 +30,9 @@ Get Team List Template
     [Documentation]    This test starts Get Team List.
     ...    -Precondition: To execute valid test, Valid Connection Details should be known to user.
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${APIID}: This field specifies API ID for authentication.
+    ...    -${APIKEY}: This field specifies API key for authentication.
+    ...    -${VeracodeCLILocation}:This field specifies the path for Veracode Java CLI.
     Generate String
     Init Action    ${_GET_TEAM_LIST_ACTION}
     Connect to Proxy
