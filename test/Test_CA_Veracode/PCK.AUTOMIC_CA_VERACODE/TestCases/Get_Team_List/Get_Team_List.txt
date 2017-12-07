@@ -11,9 +11,13 @@ Resource          ../../Resources/keywords.txt
 Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
-*** Test Cases ***    OK_NOK
-Get Team List         [Tags]    main_scenarios
-                      OK
+*** Test Cases ***    OK_NOK    APIID             APIKEY        VeracodeCLILocation
+Get Team List with valid inputs
+                      [Tags]    main_scenarios
+                      OK        ${API_ID}         ${API_Key}    ${Veracode_CLI_Location}
+
+Assertion with Invalid API ID
+                      NOK       Invalid           ${API_KEY}    ${Veracode_CLI_Location}
 
 *** Keywords ***
 Startup
@@ -22,14 +26,17 @@ Startup
     Connect AE
 
 Get Team List Template
-    [Arguments]    ${OK_NOK}
+    [Arguments]    ${OK_NOK}    ${APIID}    ${APIKEY}    ${VeracodeCLILocation}
     [Documentation]    This test starts Get Team List.
     ...    -Precondition: To execute valid test, Valid Connection Details should be known to user.
     ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
     Generate String
     Init Action    ${_GET_TEAM_LIST_ACTION}
-    Connect to Veracode
     Connect to Proxy
+    Run Keyword If    '${APIID}' == 'Invalid'    Action Set    &UC4RB_VER_API_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_API_ID#    ${APIID}
+    Action Set    &UC4RB_VER_API_KEY#    ${APIKEY}
+    Action Set    &UC4RB_VER_CLI_PATH#    ${VeracodeCLILocation}
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
     Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_TOTAL_TEAMS#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_TOTAL_TEAMS#
