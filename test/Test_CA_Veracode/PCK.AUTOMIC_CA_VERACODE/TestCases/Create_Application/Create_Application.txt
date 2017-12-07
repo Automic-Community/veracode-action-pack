@@ -1,0 +1,120 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        create_application
+Test Template     Create Application Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    ApplicationName          Description    BusinessCriticality    Policy        BusinessUnit    BusinessOwner    BusinessOwnerEmail    Teams                          Origin        Industry    ApplicationType    DeploymentMethod    WebApplication    ArcherApplicationName    Tags
+Create Application with Multiple Teams
+                      [Tags]    main_scenarios
+                      OK        ${Application_Name}      TestApp        Low                    TestPolicy    ${EMPTY}        ${Member}        ${Member}             ${Team_Name},${Team_Name_1}    Contractor    Software    CRM                WebBased            YES               TestApplication          Automation
+
+Create Application with Single Team and Asserting Optional Fields
+                      OK        ${Application_Name_1}    ${EMPTY}       High                   ${EMPTY}      ${EMPTY}        ${EMPTY}         ${EMPTY}              ${Team_Name}                   ${EMPTY}      ${EMPTY}    ${EMPTY}           ${EMPTY}            NO                ${EMPTY}                 ${EMPTY}
+
+Create Application with already existing Application Name
+                      NOK       ${Application_Name}      ${EMPTY}       Low                    ${EMPTY}      ${EMPTY}        ${EMPTY}         ${EMPTY}              ${EMPTY}                       ${EMPTY}      ${EMPTY}    ${EMPTY}           ${EMPTY}            ${EMPTY}          ${EMPTY}                 ${EMPTY}
+
+Create Application while providing non-existing Business Criticality
+                      NOK       ${Application_Name_2}    ${EMPTY}       Invalid                ${EMPTY}      ${EMPTY}        ${EMPTY}         ${EMPTY}              ${EMPTY}                       ${EMPTY}      ${EMPTY}    ${EMPTY}           ${EMPTY}            ${EMPTY}          ${EMPTY}                 ${EMPTY}
+
+Create Application while providing non-existing policy
+                      NOK       ${Application_Name_2}    ${EMPTY}       Low                    Invalid       ${EMPTY}        ${EMPTY}         ${EMPTY}              ${EMPTY}                       ${EMPTY}      ${EMPTY}    ${EMPTY}           ${EMPTY}            ${EMPTY}          ${EMPTY}                 ${EMPTY}
+
+Create Application while providing non-existing Business Unit
+                      NOK       ${Application_Name_2}    ${EMPTY}       Low                    ${EMPTY}      Invalid         ${EMPTY}         ${EMPTY}              ${EMPTY}                       ${EMPTY}      ${EMPTY}    ${EMPTY}           ${EMPTY}            ${EMPTY}          ${EMPTY}                 ${EMPTY}
+
+Create Application while providing invalid format for Business Owner Email
+                      NOK       ${Application_Name_2}    ${EMPTY}       Low                    ${EMPTY}      ${EMPTY}        ${EMPTY}         Invalid               ${EMPTY}                       ${EMPTY}      ${EMPTY}    ${EMPTY}           ${EMPTY}            ${EMPTY}          ${EMPTY}                 ${EMPTY}
+
+Create Application while providing non-existing Team
+                      NOK       ${Application_Name_2}    ${EMPTY}       Low                    ${EMPTY}      ${EMPTY}        ${EMPTY}         ${EMPTY}              Invalid                        ${EMPTY}      ${EMPTY}    ${EMPTY}           ${EMPTY}            ${EMPTY}          ${EMPTY}                 ${EMPTY}
+
+Create Application while providing non-existing Origin
+                      NOK       ${Application_Name_2}    ${EMPTY}       Low                    ${EMPTY}      ${EMPTY}        ${EMPTY}         ${EMPTY}              ${EMPTY}                       Invalid       ${EMPTY}    ${EMPTY}           ${EMPTY}            ${EMPTY}          ${EMPTY}                 ${EMPTY}
+
+Create Application while providing non-existing Industry
+                      NOK       ${Application_Name_2}    ${EMPTY}       Low                    ${EMPTY}      ${EMPTY}        ${EMPTY}         ${EMPTY}              ${EMPTY}                       ${EMPTY}      Invalid     ${EMPTY}           ${EMPTY}            ${EMPTY}          ${EMPTY}                 ${EMPTY}
+
+Create Application while providing non-existing Application Type
+                      NOK       ${Application_Name_2}    ${EMPTY}       Low                    ${EMPTY}      ${EMPTY}        ${EMPTY}         ${EMPTY}              ${EMPTY}                       ${EMPTY}      ${EMPTY}    Invalid            ${EMPTY}            ${EMPTY}          ${EMPTY}                 ${EMPTY}
+
+Create Application while providing non-existing Deployment Method
+                      NOK       ${Application_Name_2}    ${EMPTY}       Low                    ${EMPTY}      ${EMPTY}        ${EMPTY}         ${EMPTY}              ${EMPTY}                       ${EMPTY}      ${EMPTY}    ${EMPTY}           Invalid             ${EMPTY}          ${EMPTY}                 ${EMPTY}
+
+Assert Application Name as Mandatory Field
+                      NOK       ${EMPTY}                 TestApp        Low                    TestPolicy    ${EMPTY}        ${Member}        ${Member}             ${Team_Name}                   Contractor    Software    CRM                WebBased            YES               TestApplication          Automation
+
+Assert Business Criticality as Mandatory Field
+                      NOK       ${Application_Name_2}    TestApp        ${EMPTY}               TestPolicy    ${EMPTY}        ${Member}        ${Member}             ${Team_Name}                   Contractor    Software    CRM                WebBased            YES               TestApplication          Automation
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "CREATE APPLICATION"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Create Application Template
+    [Arguments]    ${OK_NOK}    ${ApplicationName}    ${Description}    ${BusinessCriticality}    ${Policy}    ${BusinessUnit}
+    ...    ${BusinessOwner}    ${BusinessOwnerEmail}    ${Teams}    ${Origin}    ${Industry}    ${ApplicationType}
+    ...    ${DeploymentMethod}    ${WebApplication}    ${ArcherApplicationName}    ${Tags}
+    [Documentation]    This test starts Create Application.
+    ...    -Precondition: To execute valid test, Valid Connection Details should be known to user.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${ApplicationName}: This field specifies name of the application you are creating
+    ...    -${Description}: This field specifies description to your application.
+    ...    -${BusinessCriticality}: This field specifies business criticality of the application. Must be one of types defined by Veracode. E.g. Very High
+    ...    -${Policy}: This field specifies policy which will be used for validation. Must be one of policies defined in your account.
+    ...    -${BusinessUnit}: This field specifies name of the existing business unit. Must be one of units defined in your account.
+    ...    -${BusinessOwner}: This field specifies name of the business owner.
+    ...    -${BusinessOwnerEmail}: This field specifies email of the business owner.
+    ...    -${Teams}: This field specifies team names separated by comma. Must be exsiting in your account. Case sensitive. E.g. Spartan,Hermes
+    ...    -${Origin}: This field specifies origin of the application. Must be one of origin defined by Veracode. E.g. Open Source
+    ...    -${Industry}: This field specifies industry in which the application is mainly used. Must be one of industries defined by Veracode. E.g. Software
+    ...    -${ApplicationType}: This field specifies type of the application. Must be one of types defined by Veracode. E.g. CRM
+    ...    -${DeploymentMethod}: This field specifies method of the application deployment. Must be one of types defined by Veracode. E.g. Web Based
+    ...    -${WebApplication}: This field specifies whether if it is a web application or not.
+    ...    -${ArcherApplicationName}: This field specifies name of the archer application.
+    ...    -${Tags}: This field specifies tags separated by comma.
+    Generate String
+    Init Action    ${_CREATE_APPLICATION_ACTION}
+    Connect to Veracode
+    Connect to Proxy
+    Action Set    &UC4RB_VER_APP_NAME#    ${ApplicationName}
+    Action Set    &UC4RB_VER_DESCRIPTION#    ${Description}
+    Run Keyword If    '${BusinessCriticality}' == 'Invalid'    Action Set    &UC4RB_VER_BUS_CRITICALITY#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_BUS_CRITICALITY#    ${BusinessCriticality}
+    Run Keyword If    '${Policy}' == 'Invalid'    Action Set    &UC4RB_VER_POLICY#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_POLICY#    ${Policy}
+    Run Keyword If    '${BusinessUnit}' == 'Invalid'    Action Set    &UC4RB_VER_BUS_UNIT#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_BUS_UNIT#    ${BusinessUnit}
+    Action Set    &UC4RB_VER_BUS_OWNER#    ${BusinessOwner}
+    Run Keyword If    '${BusinessOwnerEmail}' == 'Invalid'    Action Set    &UC4RB_VER_BUS_OWNER_EMAIL#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_BUS_OWNER_EMAIL#    ${BusinessOwnerEmail}
+    Run Keyword If    '${Teams}' == 'Invalid'    Action Set    &UC4RB_VER_TEAMS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_TEAMS#    ${Teams}
+    Run Keyword If    '${Origin}' == 'Invalid'    Action Set    &UC4RB_VER_ORIGIN#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_ORIGIN#    ${Origin}
+    Run Keyword If    '${Industry}' == 'Invalid'    Action Set    &UC4RB_VER_INDUSTRY#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_INDUSTRY#    ${Industry}
+    Run Keyword If    '${ApplicationType}' == 'Invalid'    Action Set    &UC4RB_VER_APP_TYPE#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_APP_TYPE#    ${ApplicationType}
+    Run Keyword If    '${DeploymentMethod}' == 'Invalid'    Action Set    &UC4RB_VER_DEPLOY_METHODS#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_DEPLOY_METHODS#    ${DeploymentMethod}
+    Action Set    &UC4RB_VER_WEB_APP#    ${WebApplication}
+    Action Set    &UC4RB_VER_ARCHER_APP#    ${ArcherApplicationName}
+    Action Set    &UC4RB_VER_TAGS#    ${Tags}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_APP_ID#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_APP_ID#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+
+Teardown
+    Log    *******End Test "CREATE APPLICATION"*******
