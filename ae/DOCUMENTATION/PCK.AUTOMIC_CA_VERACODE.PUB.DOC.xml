@@ -53,7 +53,10 @@ Following actions are supported.
 * Action Description: This action fetches the results of the pre-scan.
 
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_TEAM_LIST
-* Action Description: This action provides list of existing teams]]></DOC>
+* Action Description: This action provides list of existing teams
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_APPLICATION
+* Action Description: This action creates a new application in the portfolio.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
