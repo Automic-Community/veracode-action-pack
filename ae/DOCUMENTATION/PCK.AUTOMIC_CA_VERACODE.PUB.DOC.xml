@@ -52,8 +52,8 @@ Following actions are supported.
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_PRESCAN_RESULTS
 * Action Description: This action fetches the results of the pre-scan.
 
-* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_APPLICAITON
-* Action Description: This action Creates a new application in the portfolio.]]></DOC>
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_APPLICATION
+* Action Description: This action creates a new application in the portfolio.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>

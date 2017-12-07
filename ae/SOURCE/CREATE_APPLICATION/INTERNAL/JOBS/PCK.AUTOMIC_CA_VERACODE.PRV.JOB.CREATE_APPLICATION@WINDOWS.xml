@@ -117,9 +117,6 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[@echo off
 
-: DEFINE &STRING_ARR#, string, 30
-: INC PCK.ITPA_SHARED.PUB.INCLUDE.SUDOERS_HEADER
-
 !----------------------------------------------- Parameter validation ---------------------------------------------------------------------------------------------
 : INC PCK.ITPA_SHARED.PRV.INCLUDE.LOGGING.HEADER.EXECUTION
 
