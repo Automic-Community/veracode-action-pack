@@ -1,0 +1,45 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        get_application_list
+Test Template     Get Application List Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    IncludeUserInfo
+Get Application List with user info as Yes
+                      [Tags]    main_scenarios
+                      OK        Yes
+
+Get Application List with user info as No
+                      OK        No
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "GET APPLICATION LIST"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Get Application List Template
+    [Arguments]    ${OK_NOK}    ${IncludeUserInfo}
+    [Documentation]    This test start Get Application List
+    ...    -Precondition: To execute valid test, Valid Connection Details should be known to user.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${IncludeUserInfo}: This field specifies whether if you want to include user information in the result.
+    Generate String
+    Init Action    ${_GET_APPLICATION_LIST_ACTION}
+    Connect to Veracode
+    Connect to Proxy
+    Action Set    &UC4RB_VER_USER_INFO#    ${IncludeUserInfo}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_TOTAL_APP#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_TOTAL_APP#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+
+Teardown
+    Log    *******End Test "GET APPLICATION LIST"*******
