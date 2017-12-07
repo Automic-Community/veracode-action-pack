@@ -452,7 +452,38 @@
 <MSCRI/>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
-<DOC/>
+<DOC><![CDATA[= Action name =
+PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_APPLICATION_LIST
+
+= General description =
+ This action provides the list of existing applications
+
+= Failure Conditions =
+(none)
+
+= Inputs =
+* Include User Info:			 Specify whether if you want to include user information in the result. E.g. Yes
+
+= Behavior =
+(none)
+
+=Return Value=
+* UC4RB_VER_RESPONSE:   App list XML content.
+* UC4RB_VER_TOTAL_APPS:  Total Applications
+
+= Outputs =
+* Return code is 0 in case of success.
+* Return code is non-zero in case of failure.
+
+= Rollback =
+(none)
+
+= Logging =
+AE logs will be displayed in the AE report.
+
+= Example =
+* Include User Info: 			 Yes
+]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
