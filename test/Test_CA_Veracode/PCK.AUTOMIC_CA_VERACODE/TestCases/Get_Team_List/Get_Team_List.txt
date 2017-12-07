@@ -1,0 +1,37 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        get_team_list
+Test Template     Get Team List Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "GET TEAM LIST"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Get Application List Template
+    [Arguments]    ${OK_NOK}
+    [Documentation]    This test starts Get Team List.
+    ...    -Precondition: To execute valid test, Valid Connection Details should be known to user.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    Generate String
+    Init Action    ${_GET_TEAM_LIST_ACTION}
+    Connect to Veracode
+    Connect to Proxy
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_TOTAL_TEAMS#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_TOTAL_TEAMS#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+
+Teardown
+    Log    *******End Test "GET TEAM LIST"*******
