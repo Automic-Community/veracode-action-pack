@@ -12,6 +12,8 @@ Resource          ../../Resources/variables.txt
 Resource          ../../Resources/actions.txt
 
 *** Test Cases ***    OK_NOK
+Get Team List         [Tags]    main_scenarios
+                      OK
 
 *** Keywords ***
 Startup
@@ -19,7 +21,7 @@ Startup
     Log    *******Connect to AE*******
     Connect AE
 
-Get Application List Template
+Get Team List Template
     [Arguments]    ${OK_NOK}
     [Documentation]    This test starts Get Team List.
     ...    -Precondition: To execute valid test, Valid Connection Details should be known to user.
