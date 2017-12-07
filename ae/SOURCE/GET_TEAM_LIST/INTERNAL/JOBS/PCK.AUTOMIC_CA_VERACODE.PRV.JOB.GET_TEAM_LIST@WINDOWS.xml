@@ -128,7 +128,7 @@
 ! Status messages
 : SET &UC4RB_LOGGING_INFO# = "********  GET TEAM LIST ACTION EXECUTED SUCCESSFULLY ********"
 : SET &UC4RB_LOGGING_ERROR# = "******** GET TEAM LIST ACTION EXECUTION FAILED ********"
-!------------------------------------------ Running create team command -------------------------------------------------------------------------------------------
+!------------------------------------------ Running get team list command -------------------------------------------------------------------------------------------
 : SET &ACTION_NAME# = "getTeamList"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@WIN
 
