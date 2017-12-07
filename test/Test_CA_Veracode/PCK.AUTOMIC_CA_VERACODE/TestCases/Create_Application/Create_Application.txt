@@ -17,7 +17,7 @@ Create Application with Multiple Teams
                       OK        ${Application_Name}      TestApp        Low                    TestPolicy    ${EMPTY}        ${Member}        ${Member}             ${Team_Name},${Team_Name_1}    Contractor    Software    CRM                WebBased            YES               TestApplication          Automation
 
 Create Application with Single Team and Asserting Optional Fields
-                      OK        ${Application_Name_1}    ${EMPTY}       High                   ${EMPTY}      ${EMPTY}        ${EMPTY}         ${EMPTY}              ${EMPTY}                       ${EMPTY}      ${EMPTY}    ${EMPTY}           ${EMPTY}            NO                ${EMPTY}                 ${EMPTY}
+                      OK        ${Application_Name_1}    ${EMPTY}       High                   ${EMPTY}      ${EMPTY}        ${EMPTY}         ${EMPTY}              ${Team_Name}                   ${EMPTY}      ${EMPTY}    ${EMPTY}           ${EMPTY}            NO                ${EMPTY}                 ${EMPTY}
 
 Create Application with already existing Application Name
                       NOK       ${Application_Name}      ${EMPTY}       Low                    ${EMPTY}      ${EMPTY}        ${EMPTY}         ${EMPTY}              ${EMPTY}                       ${EMPTY}      ${EMPTY}    ${EMPTY}           ${EMPTY}            ${EMPTY}          ${EMPTY}                 ${EMPTY}
