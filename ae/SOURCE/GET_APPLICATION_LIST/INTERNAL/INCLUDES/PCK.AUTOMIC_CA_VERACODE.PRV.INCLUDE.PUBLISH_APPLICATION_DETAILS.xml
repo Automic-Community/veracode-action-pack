@@ -36,13 +36,11 @@
 :                SET &UC4RB_VER_TOTAL_APPS# = XML_GET_CHILD_COUNT(&XMLDOCU#)
 :            XML_CLOSE
 
-!            check if application count is found or not
-:            IF &UC4RB_VER_TOTAL_APPS# = ""
-:                  PRINT "ERROR: Unable to retrieve application count."
-:                  MODIFY_STATE STATUS_TEXT="Unable to retrieve application count!!"
-:                  MODIFY_STATE RETCODE=50
+!            check if applications found or not
+:            IF &UC4RB_VER_TOTAL_APPS# = 0
+:                  PRINT "No applications found."
 :            ELSE
-:                  IF &UC4RB_VER_USER_INFO# = 'Yes'
+:                  IF &UC4RB_VER_USER_INFO# = 'YES'
 :                     SET &UC4RB_VER_TOTAL_APPS# = &UC4RB_VER_TOTAL_APPS# - 1
 :                  ENDIF
 :            ENDIF
