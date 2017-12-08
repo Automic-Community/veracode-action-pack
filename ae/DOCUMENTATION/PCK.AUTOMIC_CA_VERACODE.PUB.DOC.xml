@@ -52,8 +52,14 @@ Following actions are supported.
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_PRESCAN_RESULTS
 * Action Description: This action fetches the results of the pre-scan.
 
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_TEAM_LIST
+* Action Description: This action provides list of existing teams
+
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_APPLICATION
 * Action Description: This action creates a new application in the portfolio.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_APPLICATION_LIST
+* Action Description: This action fetches the list of applications.
 
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_APPLICATION
 * Action Description: This action deletes an existing application.]]></DOC>
