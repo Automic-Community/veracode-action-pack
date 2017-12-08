@@ -130,8 +130,8 @@
 
 !------------------------------------------ Error Handling --------------------------------------------------------------------------------------------------------
 ! Status messages
-: SET &UC4RB_LOGGING_INFO# = "********  APPLICATION ID ACTION EXECUTED SUCCESSFULLY ********"
-: SET &UC4RB_LOGGING_ERROR# = "******** APPLICATION ID ACTION EXECUTION FAILED ********"
+: SET &UC4RB_LOGGING_INFO# = "********  DELETE APPLICATION ACTION EXECUTED SUCCESSFULLY ********"
+: SET &UC4RB_LOGGING_ERROR# = "******** DELETE APPLICATION ACTION EXECUTION FAILED ********"
 
 !------------------------------------------ Running delete application command -------------------------------------------------------------------------------------------
 : SET &ACTION_NAME# = "deleteapp"
@@ -159,7 +159,7 @@
 <LoginFsc/>
 </OUTPUTSCAN>
 <POST_SCRIPT mode="1" replacementmode="1" state="1">
-<OSCRI><![CDATA[:INC PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_APP_LIST]]></OSCRI>
+<OSCRI><![CDATA[:INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PUBLISH_XML_OUTPUT]]></OSCRI>
 </POST_SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC/>
