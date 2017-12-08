@@ -45,9 +45,9 @@
 <OutputDbErr>0</OutputDbErr>
 <OutputFile>0</OutputFile>
 <IsGenerated>0</IsGenerated>
-<BAT>0</BAT>
+<BAT>1</BAT>
 <COM>0</COM>
-<WinBatch>1</WinBatch>
+<WinBatch>0</WinBatch>
 <Standard>1</Standard>
 <Minimized>0</Minimized>
 <Maximized>0</Maximized>
