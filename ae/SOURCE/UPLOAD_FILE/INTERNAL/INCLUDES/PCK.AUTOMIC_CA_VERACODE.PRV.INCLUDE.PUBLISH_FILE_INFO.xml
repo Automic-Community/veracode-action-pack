@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBI name="PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_APP_INFO">
+<JOBI name="PCK.AUTOMIC_CA_VERACODE.PRV.INCLUDE.PUBLISH_FILE_INFO">
 <HEADER state="1">
-<Title>Application Info</Title>
+<Title>Publish file info</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <OH_SubType/>
@@ -9,7 +9,7 @@
 <SCRIPT mode="1" state="1">
 <MSCRI><![CDATA[:SET &STATUS# = GET_UC_OBJECT_STATUS(,,"RETCODE")
 :SET &UC4RB_VER_RESPONSE# = ""
-:SET &UC4RB_VER_APP_ID# = ""
+:SET &UC4RB_VER_FILE_IDS# = ""
 
 :IF &STATUS# EQ 0
 :            SET &NL# = UC_CRLF()
@@ -32,18 +32,26 @@
 :                     MODIFY_STATE RETCODE=50
 :                 ENDIF
 
-!                 Read app id from the response
+!                 Read file id from the response
 :                SET &NODE# = XML_GET_FIRST_CHILD(&XMLDOCU#)
 :                SET &NODE_NAME# = XML_GET_NODE_NAME(&NODE#)
-:                IF  &NODE_NAME# = "application"
-:                       SET &UC4RB_VER_APP_ID# = XML_GET_ATTRIBUTE(&NODE#, "@app_id")
+:                IF  &NODE_NAME# = "file"
+:                     SET &UC4RB_VER_FILE_ID# = XML_GET_ATTRIBUTE(&NODE#, "@file_id")
+:                     SET &UC4RB_VER_FILE_IDS# = STR_CAT(&UC4RB_VER_FILE_IDS#, &UC4RB_VER_FILE_ID#)
+:                     SET &NODE# = XML_GET_NEXTSIBLING(&NODE#)
+:                     WHILE &NODE# <> ""
+:                          SET &UC4RB_VER_FILE_IDS# = STR_CAT(&UC4RB_VER_FILE_IDS#,",")
+:                          SET &UC4RB_VER_FILE_ID# = XML_GET_ATTRIBUTE(&NODE#, "@file_id")
+:                          SET &UC4RB_VER_FILE_IDS# = STR_CAT(&UC4RB_VER_FILE_IDS#, &UC4RB_VER_FILE_ID#)
+:                          SET &NODE# = XML_GET_NEXTSIBLING(&NODE#)
+:                     ENDWHILE
 :                   ENDIF
 :            XML_CLOSE
 
-!            check if App id is found or not
-:            IF &UC4RB_VER_APP_ID# = ""
-:                  PRINT "ERROR: Unable to retrieve app id."
-:                  MODIFY_STATE STATUS_TEXT="Unable to retrieve app id!!"
+!            check if file id is found or not
+:            IF &UC4RB_VER_FILE_IDS# = ""
+:                  PRINT "ERROR: Unable to retrieve file id."
+:                  MODIFY_STATE STATUS_TEXT="Unable to retrieve file id!!"
 :                  MODIFY_STATE RETCODE=50
 :            ENDIF
 :            SET &UC4RB_DELETE_FILE#=&UC4RB_TEMP_FILE_PATH#
@@ -51,8 +59,7 @@
 :ENDIF
 
 :PUBLISH &UC4RB_VER_RESPONSE#,,"WORKFLOW"
-:PUBLISH &UC4RB_VER_APP_ID#,,"WORKFLOW"
-
+:PUBLISH &UC4RB_VER_FILE_IDS#,,"WORKFLOW"
 ]]></MSCRI>
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
