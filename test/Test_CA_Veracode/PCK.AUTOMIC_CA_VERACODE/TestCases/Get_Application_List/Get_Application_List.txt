@@ -14,13 +14,13 @@ Resource          ../../Resources/actions.txt
 *** Test Cases ***    OK_NOK    IncludeUserInfo    APIID        APIKEY        VeracodeCLILocation
 Get Application List with user info as Yes
                       [Tags]    main_scenarios
-                      OK        Yes                ${API_ID}    ${API_Key}    ${Veracode_CLI_Location}
+                      OK        YES                ${API_ID}    ${API_Key}    ${Veracode_CLI_Location}
 
 Get Application List with user info as No
-                      OK        No                 ${API_ID}    ${API_Key}    ${Veracode_CLI_Location}
+                      OK        NO                 ${API_ID}    ${API_Key}    ${Veracode_CLI_Location}
 
 Assertion with Invalid API ID
-                      NOK       Yes                Invalid      ${API_KEY}    ${Veracode_CLI_Location}
+                      NOK       YES                Invalid      ${API_KEY}    ${Veracode_CLI_Location}
 
 *** Keywords ***
 Startup
@@ -47,7 +47,7 @@ Get Application List Template
     Action Set    &UC4RB_VER_CLI_PATH#    ${VeracodeCLILocation}
     Action Execute
     Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
-    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_TOTAL_APP#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_TOTAL_APP#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_TOTAL_APPS#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_TOTAL_APPS#
     Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
 
 Teardown
