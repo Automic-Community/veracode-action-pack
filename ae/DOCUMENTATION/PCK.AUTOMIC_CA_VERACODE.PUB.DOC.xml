@@ -61,6 +61,9 @@ Following actions are supported.
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_APPLICATION_LIST
 * Action Description: This action fetches the list of applications.
 
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_USER
+* Action Description: This action deletes the specified user.
+
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_APPLICATION
 * Action Description: This action deletes an existing application.]]></DOC>
 </DOCU_Docu>
