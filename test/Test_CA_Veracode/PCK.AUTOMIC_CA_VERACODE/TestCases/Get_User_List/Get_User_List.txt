@@ -1,0 +1,76 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        get_user_list
+Test Template     Get User List Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    FirstName         LastName        Roles                Email          Teams                          Phone       AccountType    CustomID        OtherFilters
+Get User List with valid inputs
+                      [Tags]    main_scenarios
+                      OK        ${First_Name}     ${Last_Name}    ${EMPTY}             ${Email_ID}    ${EMPTY}                       ${Phone}    User           ${Custom_ID}    ${Other_Filters}
+
+Get User List for multiple roles and teams
+                      OK        ${EMPTY}          ${EMPTY}        Creator,Submitter    ${EMPTY}       ${Team_Name},${Team_Name_1}    ${EMPTY}    API            ${EMPTY}        ${EMPTY}
+
+Get all users i.e. asserting all the fields as optional
+                      OK        ${EMPTY}          ${EMPTY}        ${EMPTY}             ${EMPTY}       ${EMPTY}                       ${EMPTY}    ${EMPTY}       ${EMPTY}        ${EMPTY}
+
+Get user list while providing invalid input params
+                      OK        Invalid           Invalid         Invalid              ${EMPTY}       Invalid                        Invalid     ${EMPTY}       Invalid         ${EMPTY}
+
+Get user list for invalid email format
+                      NOK       ${EMPTY}          ${EMPTY}        ${EMPTY}             Invalid        ${EMPTY}                       ${EMPTY}    ${EMPTY}       ${EMPTY}        ${EMPTY}
+
+Get user list for invalid other filters
+                      NOK       ${EMPTY}          ${EMPTY}        ${EMPTY}             ${EMPTY}       ${EMPTY}                       ${EMPTY}    ${EMPTY}       ${EMPTY}        Invalid
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "GET USER LIST"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Get User List Template
+    [Arguments]    ${OK_NOK}    ${FirstName}    ${LastName}    ${Roles}    ${Email}    ${Teams}
+    ...    ${Phone}    ${AccountType}    ${CustomID}    ${OtherFilters}
+    [Documentation]    This test starts Get User List.
+    ...    -Precondition: To execute valid test, Valid Connection Details should be known to user.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${FirstName}: This field specifies filter the list based on the first name.
+    ...    -${LastName}: This field specifies filter the list based on the last name.
+    ...    -${Roles}: This field specifies roles separated by comma. Only human user roles can be specified. It is case sensitive.
+    ...    -${Email}: This field specifies email address of the user you are creating.
+    ...    -${Teams}: This field specifies team names separated by comma. It is case sensitive.
+    ...    -${Phone}: This field specifies Phone Number.
+    ...    -${AccountType}: This field specifies account type.
+    ...    -${CustomID}: This field specifies Custom ID.
+    ...    -${OtherFilters}: This field specifies other filters i.e -loginenabled=true
+    Generate String
+    Init Action    ${_GET_USER_LIST_ACTION}
+    Connect to Veracode
+    Connect to Proxy
+    Action Set    &UC4RB_VER_FIRST_NAME#    ${FirstName}
+    Action Set    &UC4RB_VER_LAST_NAME#    ${LastName}
+    Action Set    &UC4RB_VER_ROLES#    ${Roles}
+    Action Set    &UC4RB_VER_TEAMS#    ${Teams}
+    Run Keyword If    '${Email}' == 'Invalid'    Action Set    &UC4RB_VER_EMAIL#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_EMAIL#    ${Email}
+    Action Set    &UC4RB_VER_PHONE#    ${Phone}
+    Action Set    &UC4RB_VER_ACC_TYPE#    ${AccountType}
+    Action Set    &UC4RB_VER_CUST_ID#    ${CustomID}
+    Run Keyword If    '${OtherFilters}' == 'Invalid'    Action Set    &UC4RB_VER_FILTER#    -${Generated_Name} ${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_FILTER#    OtherFilters}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_USER_COUNT#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_USER_COUNT#
+
+Teardown
+    Log    *******End Test "GET USER LIST"*******
