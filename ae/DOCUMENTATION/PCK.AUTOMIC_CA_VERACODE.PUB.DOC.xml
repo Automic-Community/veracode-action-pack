@@ -58,6 +58,9 @@ Following actions are supported.
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_APPLICATION
 * Action Description: This action creates a new application in the portfolio.
 
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.UPLOAD_FILE
+* Action Description: This action uploads a file to an existing application or creates a new build if one does not already exist.
+
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_APPLICATION_LIST
 * Action Description: This action fetches the list of applications.
 

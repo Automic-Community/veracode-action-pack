@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBP AllowExternal="1" name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_APPLICATION_LIST">
+<JOBP AllowExternal="1" name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.UPLOAD_FILE">
 <XHEADER state="1">
-<Title>Get Application list</Title>
+<Title>Upload File</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -72,10 +72,13 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">
-<UC4RB_VER_USER_INFOs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_USER_INFO#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">NO</UC4RB_VER_USER_INFOs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE">
+<UC4RB_VER_APP_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_FILEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_FILE#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_SANDBOXs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_SANDBOX#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_SAVE_ASs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_SAVE_AS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -106,7 +109,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="GET_APPLICATION_LIST" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.GET_APPLICATION_LIST@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="UPLOAD_FILE" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.UPLOAD_FILE@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -155,10 +158,13 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">
-<UC4RB_VER_USER_INFOs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_USER_INFO#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">NO</UC4RB_VER_USER_INFOs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE">
+<UC4RB_VER_APP_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_FILEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_FILE#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_SANDBOXs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_SANDBOX#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_SAVE_ASs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_SAVE_AS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -189,7 +195,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="GET_APPLICATION_LIST" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.GET_APPLICATION_LIST@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
+<task Alias="UPLOAD_FILE" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.UPLOAD_FILE@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -238,10 +244,13 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">
-<UC4RB_VER_USER_INFOs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_USER_INFO#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">NO</UC4RB_VER_USER_INFOs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE">
+<UC4RB_VER_APP_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_FILEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_FILE#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_SANDBOXs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_SANDBOX#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_SAVE_ASs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_SAVE_AS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -308,10 +317,13 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">
-<UC4RB_VER_USER_INFOs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_USER_INFO#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST">NO</UC4RB_VER_USER_INFOs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE">
+<UC4RB_VER_APP_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_FILEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_FILE#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_SANDBOXs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_SANDBOX#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
+<UC4RB_VER_SAVE_ASs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_SAVE_AS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -406,10 +418,13 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.GET_APPLICATION_LIST" prptmode="1">
-<UC4RB_VER_USER_INFOs.00 altview="0" haslist="0">NO</UC4RB_VER_USER_INFOs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" parent="PRPTS" type="PROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" ontop="1">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.UPLOAD_FILE" prptmode="1">
+<UC4RB_VER_APP_IDs.00 altview="0" haslist="0"/>
+<UC4RB_VER_FILEs.00 altview="0" haslist="0"/>
+<UC4RB_VER_SAVE_ASs.00 altview="0" haslist="0"/>
+<UC4RB_VER_SANDBOXs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -453,23 +468,28 @@
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[= Action name =
-PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_APPLICATION_LIST
+PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.UPLOAD_FILE
 
 = General description =
- This action provides the list of existing applications
+This action uploads a file to an existing application or creates a new build if one does not already exist.Optionally, you can upload additional files after the initial file upload, if necessary. 
+If you want to upload a file that does not have the same name as a previous file, you can use the save_as parameter to change the name, enabling flaw-matching with previously scanned files.
 
 = Failure Conditions =
-(none)
+* You cannot upload files to a build when a prescan is ongoing, which is the state a scan is in after calling Begin Prescan
 
 = Inputs =
-* Include User Info:			 Specify whether if you want to include user information in the result. E.g. Yes
+* Application ID		: Provide ID of the application into which you want to upload a new file. E.g. 383756
+* File				: Filepath of the file to upload. E.g. C:\target\app.war
+* Save as 			: Enter the new filename if you want to upload with a different name. E.g. application.war
+* Sandbox ID			: Enter the ID of the sandbox to which you want to upload the file. E.g. 481409
 
 = Behavior =
 (none)
 
 =Return Value=
-* UC4RB_VER_RESPONSE:   App list XML content.
-* UC4RB_VER_TOTAL_APPS:  Total Applications
+* UC4RB_VER_RESPONSE:  file list XML content.
+* UC4RB_VER_FILE_IDS: Comma separated values of Id(s)
+
 
 = Outputs =
 * Return code is 0 in case of success.
@@ -482,8 +502,10 @@ PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_APPLICATION_LIST
 AE logs will be displayed in the AE report.
 
 = Example =
-* Include User Info: 			 Yes
-]]></DOC>
+* Application ID		: 383756
+* File				: C:\target\app.war
+* Save as 			: application.war
+* Sandbox ID			: 481409]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
