@@ -62,7 +62,10 @@ Following actions are supported.
 * Action Description: This action fetches the list of applications.
 
 * Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_APPLICATION
-* Action Description: This action deletes an existing application.]]></DOC>
+* Action Description: This action deletes an existing application.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_USER_LIST
+* Action Description: This action returns a list of the Veracode user accounts separated by comma.]]></DOC>
 </DOCU_Docu>
 </DOCU>
 </uc-export>
