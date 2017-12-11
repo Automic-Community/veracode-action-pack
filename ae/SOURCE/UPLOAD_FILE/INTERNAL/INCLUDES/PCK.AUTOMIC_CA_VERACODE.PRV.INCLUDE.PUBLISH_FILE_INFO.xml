@@ -50,8 +50,8 @@
 
 !            check if file id is found or not
 :            IF &UC4RB_VER_FILE_IDS# = ""
-:                  PRINT "ERROR: Unable to retrieve file id."
-:                  MODIFY_STATE STATUS_TEXT="Unable to retrieve file id!!"
+:                  PRINT "ERROR: Unable to retrieve file id(s)."
+:                  MODIFY_STATE STATUS_TEXT="Unable to retrieve file id(s)!!"
 :                  MODIFY_STATE RETCODE=50
 :            ENDIF
 :            SET &UC4RB_DELETE_FILE#=&UC4RB_TEMP_FILE_PATH#

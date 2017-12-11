@@ -167,6 +167,10 @@
 
 ! Sandbox ID
 : IF &UC4RB_VER_SANDBOX# <> ""
+:      SET &NUM_CHECK#=ISNUMERIC(&UC4RB_VER_SANDBOX#)
+:      IF &NUM_CHECK# <> 'Y'
+:        STOP MSG, 50, "Incorrect Sandbox ID, it can only be numeric."
+:      ENDIF
 :     SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_SANDBOX#
 :     INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.ESCAPE_ARG_VALUE@WIN
 :     SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#," -sandboxid &UC4RB_ESCAPED_STRING#")
