@@ -41,14 +41,16 @@
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_TEAM/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_APPLICATION_LIST/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_APPLICATION_LIST/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_BUILD_INFO/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_BUILD_INFO/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_PRESCAN_RESULTS/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_PRESCAN_RESULTS/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.UPLOAD_FILE/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
-<row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.UPLOAD_FILE/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_TEAM_LIST/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_TEAM_LIST/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_USER_LIST/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
 <row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_USER_LIST/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.UPLOAD_FILE/AGENT#" Value="&amp;AGENT#" Value1="" Value2="" Value3="" Value4=""/>
+<row Name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.UPLOAD_FILE/LOGIN#" Value="&amp;LOGIN#" Value1="" Value2="" Value3="" Value4=""/>
 </Variables>
 </VARA>
 <DOCU_Docu state="1" type="text">
