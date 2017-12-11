@@ -156,7 +156,7 @@
 ! Status messages
 : SET &UC4RB_LOGGING_INFO# = "********  GET USER LIST ACTION EXECUTED SUCCESSFULLY ********"
 : SET &UC4RB_LOGGING_ERROR# = "******** GET USER LIST ACTION EXECUTION FAILED ********"
-!------------------------------------------ Running create team command -------------------------------------------------------------------------------------------
+!------------------------------------------ Running get user list command -------------------------------------------------------------------------------------------
 
 : SET &ACTION_NAME# = "GetUserList"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@UNIX
