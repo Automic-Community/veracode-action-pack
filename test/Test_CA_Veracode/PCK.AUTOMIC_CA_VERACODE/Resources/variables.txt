@@ -40,3 +40,7 @@ ${Application_ID2}    385812
 ${Application_Name}    AutAppln
 ${Application_Name_1}    RobotAppln
 ${Application_Name_2}    AutRobotAppln
+#----Get User List-----------------------------------------------------------------------------------------
+${Phone}          8682064033
+${Custom_ID}      automic
+${Other_Filters}    -loginenabled=true
