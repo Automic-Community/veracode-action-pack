@@ -278,11 +278,12 @@
 : ENDIF
 
 ! Web Application
-: IF &UC4RB_VER_WEB_APP# <> 'Yes'
+: IF &UC4RB_VER_WEB_APP# <> 'YES'
 :   SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#, " -webapplication false")
 : ElSE
 :   SET &UC4RB_CMD# = STR_CAT(&UC4RB_CMD#, " -webapplication true")
 : ENDIF
+
 ! Archer Application Name
 : IF &UC4RB_VER_ARCHER_APP# <> ""
 :     SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_ARCHER_APP#
