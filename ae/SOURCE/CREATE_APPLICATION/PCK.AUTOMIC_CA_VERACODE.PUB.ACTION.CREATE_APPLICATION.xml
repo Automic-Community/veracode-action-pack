@@ -532,11 +532,11 @@ This action creates a new application in the portfolio.
 * If same application name already exists.
 
 = Inputs =
-*Application Name                          :Provide name of the application you are creating. E.g. TEST_APP
+* Application Name                          :Provide name of the application you are creating. E.g. TEST_APP
 * Description		        	        : Provide description to your application. E.g. Test Application
 * Business Criticality                       : Provide business criticality of the application. Must be one of types defined by Veracode. E.g.High
 * Policy		   		                : Provide policy which will be used for validation. Must be one of policies defined in your account. E.g. Veracode Recommended High
-* Business Unit		                : Provide name of the existing business unit. Must be one of units defined in your account..
+* Business Unit		                : Provide name of the existing business unit. Must be one of units defined in your account.
 * Business Owner		                : Provide name of the business owner. E.g. user1
 * Business Owner Email		        : Provide email address of the business owner. E.g. BUOwner@veracode.com
 * Teams		        		        : Provide team names separated by comma. Must be exisiting in your account. Case sensitive. E.g. Spartan
@@ -572,14 +572,14 @@ AE logs will be displayed in the AE report.
 * Policy = Veracode Recommended Low
 * Business Owner = user1
 * Business Owner Email = BUOwner@veracode.com
-* Teams = Spartan
+* Teams = Spartan,Automic
 * Origin = Contractor
 * Industry = Software
 * Application Type = Consumer
-* Deployment Method = Mobile
+* Deployment Method = WebBased
 * Web Application = YES
 * Archer Application Name = Archer
-* Tags = spartan]]></DOC>
+* Tags = spartan,automic]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
