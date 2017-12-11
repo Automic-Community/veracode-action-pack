@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
-<JOBP AllowExternal="1" name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_APPLICATION">
+<JOBP AllowExternal="1" name="PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_APPLICATION">
 <XHEADER state="1">
-<Title>Create Application</Title>
+<Title>Delete Application</Title>
 <ArchiveKey1/>
 <ArchiveKey2/>
 <Active>1</Active>
@@ -72,24 +72,10 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">
-<UC4RB_VER_APP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_NAME#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_APP_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_TYPE#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_ARCHER_APPs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_ARCHER_APP#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_CRITICALITYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_CRITICALITY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_OWNERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_OWNER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_OWNER_EMAILs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_OWNER_EMAIL#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_UNITs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_UNIT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_DEPLOY_METHODSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_DEPLOY_METHODS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_DESCRIPTIONs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_DESCRIPTION#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_INDUSTRYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_INDUSTRY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_ORIGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_ORIGIN#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_POLICYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_POLICY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_TAGSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_TAGS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_TEAMSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_TEAMS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_WEB_APPs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_WEB_APP#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">NO</UC4RB_VER_WEB_APPs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION">
+<UC4RB_VER_APP_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -120,7 +106,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="CREATE_APPLICATION" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.CREATE_APPLICATION@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
+<task Alias="DELETE_APPLICATION" BranchType="0" Col="2" Lnr="2" OType="JOBS" Object="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.DELETE_APPLICATION@WINDOWS" ParentAlias="" ParentObject="" Row="1" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -169,24 +155,10 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">
-<UC4RB_VER_APP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_NAME#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_APP_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_TYPE#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_ARCHER_APPs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_ARCHER_APP#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_CRITICALITYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_CRITICALITY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_OWNERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_OWNER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_OWNER_EMAILs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_OWNER_EMAIL#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_UNITs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_UNIT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_DEPLOY_METHODSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_DEPLOY_METHODS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_DESCRIPTIONs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_DESCRIPTION#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_INDUSTRYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_INDUSTRY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_ORIGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_ORIGIN#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_POLICYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_POLICY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_TAGSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_TAGS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_TEAMSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_TEAMS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_WEB_APPs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_WEB_APP#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">NO</UC4RB_VER_WEB_APPs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION">
+<UC4RB_VER_APP_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -217,7 +189,7 @@
 </PostCon>
 </postconditions>
 </task>
-<task Alias="CREATE_APPLICATION" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.CREATE_APPLICATION@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
+<task Alias="DELETE_APPLICATION" BranchType="0" Col="2" Lnr="3" OType="JOBS" Object="PCK.AUTOMIC_CA_VERACODE.PRV.JOB.DELETE_APPLICATION@UNIX" ParentAlias="" ParentObject="" Row="3" Text2="">
 <checkpoint RollbackFlag="0" RunPerPatch="0" RunPerTarget="0" TcpADays="0" TcpATime="00:00" TcpATimeTZ="" TcpExecute="" TcpOn="0" promptatgen="0" showprompt="0"/>
 <after ActFlg="1" AtimOn="0" ErlstStDays="0" ErlstStTime="00:00" ErlstStTimeTZ="" HoldFlg="0"/>
 <when ChkWhenExec="0" LtstEnd="0" LtstEndDays="0" LtstEndTime="00:00" LtstSt="0" LtstStDays="0" LtstStTime="00:00" LtstTimeTZ="" WCTypeAND="1" WCTypeOR="0" WElseA="1" WElseH="0" WElseS="0" WElseX="0" WhenExecute="" WtimOn="0"/>
@@ -266,24 +238,10 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">
-<UC4RB_VER_APP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_NAME#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_APP_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_TYPE#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_ARCHER_APPs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_ARCHER_APP#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_CRITICALITYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_CRITICALITY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_OWNERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_OWNER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_OWNER_EMAILs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_OWNER_EMAIL#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_UNITs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_UNIT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_DEPLOY_METHODSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_DEPLOY_METHODS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_DESCRIPTIONs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_DESCRIPTION#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_INDUSTRYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_INDUSTRY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_ORIGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_ORIGIN#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_POLICYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_POLICY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_TAGSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_TAGS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_TEAMSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_TEAMS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_WEB_APPs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_WEB_APP#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">NO</UC4RB_VER_WEB_APPs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION">
+<UC4RB_VER_APP_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -350,24 +308,10 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" parent="PPRPTS" type="PPROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">
-<UC4RB_VER_APP_NAMEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_NAME#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_APP_TYPEs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_TYPE#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_ARCHER_APPs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_ARCHER_APP#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_CRITICALITYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_CRITICALITY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_OWNERs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_OWNER#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_OWNER_EMAILs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_OWNER_EMAIL#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_BUS_UNITs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_BUS_UNIT#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_DEPLOY_METHODSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_DEPLOY_METHODS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_DESCRIPTIONs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_DESCRIPTION#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_INDUSTRYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_INDUSTRY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_ORIGINs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_ORIGIN#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_POLICYs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_POLICY#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_TAGSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_TAGS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_TEAMSs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_TEAMS#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION"/>
-<UC4RB_VER_WEB_APPs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_WEB_APP#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION">NO</UC4RB_VER_WEB_APPs.00>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" parent="PPRPTS" type="PPROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION">
+<UC4RB_VER_APP_IDs.00 ReadFromTable="OPUD" altview="0" haslist="0" msginsert="" msgnr="" promptname="UC4RB_VER_APP_ID#" promptsetname="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -462,24 +406,10 @@
 </PRPTBOX>
 </PROMPTSET>
 </node>
-<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" parent="PRPTS" type="PROMPTSET">
-<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" ontop="1">
-<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.CREATE_APPLICATION" prptmode="1">
-<UC4RB_VER_APP_NAMEs.00 altview="0" haslist="0"/>
-<UC4RB_VER_DESCRIPTIONs.00 altview="0" haslist="0"/>
-<UC4RB_VER_BUS_CRITICALITYs.00 altview="0" haslist="0"/>
-<UC4RB_VER_POLICYs.00 altview="0" haslist="0"/>
-<UC4RB_VER_BUS_UNITs.00 altview="0" haslist="0"/>
-<UC4RB_VER_BUS_OWNERs.00 altview="0" haslist="0"/>
-<UC4RB_VER_BUS_OWNER_EMAILs.00 altview="0" haslist="0"/>
-<UC4RB_VER_TEAMSs.00 altview="0" haslist="0"/>
-<UC4RB_VER_ORIGINs.00 altview="0" haslist="0"/>
-<UC4RB_VER_INDUSTRYs.00 altview="0" haslist="0"/>
-<UC4RB_VER_APP_TYPEs.00 altview="0" haslist="0"/>
-<UC4RB_VER_DEPLOY_METHODSs.00 altview="0" haslist="0"/>
-<UC4RB_VER_WEB_APPs.00 altview="0" haslist="0">NO</UC4RB_VER_WEB_APPs.00>
-<UC4RB_VER_ARCHER_APPs.00 altview="0" haslist="0"/>
-<UC4RB_VER_TAGSs.00 altview="0" haslist="0"/>
+<node content="1" id="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" parent="PRPTS" type="PROMPTSET">
+<PROMPTSET name="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" ontop="1">
+<PRPTBOX promptset="PCK.AUTOMIC_CA_VERACODE.PRV.PROMPTSET.DELETE_APPLICATION" prptmode="1">
+<UC4RB_VER_APP_IDs.00 altview="0" haslist="0"/>
 </PRPTBOX>
 </PROMPTSET>
 </node>
@@ -523,37 +453,22 @@
 </SCRIPT>
 <DOCU_Docu state="1" type="text">
 <DOC><![CDATA[= Action name =
-PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_APPLICATION
+PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_APPLICATION
 
 = General description =
-This action creates a new application in the portfolio.
+This action deletes an existing application.
 
 = Failure Conditions =
-* If same application name already exists.
+* If user provides a non-existing/already deleted application id.
 
 = Inputs =
-* Application Name                          :Provide name of the application you are creating. E.g. TEST_APP
-* Description		        	        : Provide description to your application. E.g. Test Application
-* Business Criticality                       : Provide business criticality of the application. Must be one of types defined by Veracode. E.g.High
-* Policy		   		                : Provide policy which will be used for validation. Must be one of policies defined in your account. E.g. Veracode Recommended High
-* Business Unit		                : Provide name of the existing business unit. Must be one of units defined in your account.
-* Business Owner		                : Provide name of the business owner. E.g. user1
-* Business Owner Email		        : Provide email address of the business owner. E.g. BUOwner@veracode.com
-* Teams		        		        : Provide team names separated by comma. Must be exisiting in your account. Case sensitive. E.g. Spartan
-* Application Type		                : Specify type of the application. Must be one of types defined by Veracode. E.g. CRM
-* Origin		        		        : Specify origin of the application. Must be one of origin defined by Veracode. E.g. Contractor
-* Industry		                                : Specify industry in which the application is mainly used. Must be one of industries defined by Veracode. E.g. Software
-* Deployment Method		        : Method of the application deployment. Must be one of types defined by Veracode. E.g. Mobile
-* Web Application		                :Specify whether if it is a web application or not. E.g. No
-* Archer Application Name	        : Provide name of the archer application. E.g. ArcherApp
-* Tags		                               : Provide tags separated by comma. E.g. spartan
+* Application ID: Provide ID of the application you want to delete. E.g. 513124
 
 = Behavior =
 (none)
 
 =Return Value=
-* UC4RB_VER_RESPONSE: appinfo XML content.
-* UC4RB_VER_APP_ID: app ID of the created application
+* UC4RB_VER_RESPONSE:  Applist info XML content.
 
 = Outputs =
 * Return code is 0 in case of success.
@@ -565,21 +480,7 @@ This action creates a new application in the portfolio.
 = Logging =
 AE logs will be displayed in the AE report.
 
-= Example =
-* Application Name = TEST_APP
-* Description = Test Application
-* Business Criticality = High
-* Policy = Veracode Recommended Low
-* Business Owner = user1
-* Business Owner Email = BUOwner@veracode.com
-* Teams = Spartan,Automic
-* Origin = Contractor
-* Industry = Software
-* Application Type = Consumer
-* Deployment Method = WebBased
-* Web Application = YES
-* Archer Application Name = Archer
-* Tags = spartan,automic]]></DOC>
+= Example =]]></DOC>
 </DOCU_Docu>
 </JOBP>
 </uc-export>
