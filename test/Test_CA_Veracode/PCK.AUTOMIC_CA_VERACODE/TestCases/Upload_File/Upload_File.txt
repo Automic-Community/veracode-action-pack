@@ -1,0 +1,72 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        upload_file
+Test Template     Upload File Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    ApplicationID        File                               SaveAs      SandboxID
+Upload File while providing all the inputs
+                      [Tags]    main_scenarios
+                      OK        ${Application_ID}    ${EXECDIR}\\VeracodeJavaAPI.jar    API.jar     ${Sandbox_ID}
+
+Upload File while asserting optional field
+                      OK        ${Application_ID}    ${EXECDIR}\\VeracodeJavaAPI.jar    ${EMPTY}    ${EMPTY}
+
+Upload File with non-existing Application ID
+                      NOK       Invalid              ${EXECDIR}\\VeracodeJavaAPI.jar    ${EMPTY}    ${EMPTY}
+
+Upload File while providing non-existing File Path
+                      NOK       ${Application_ID}    Invalid                            ${EMPTY}    ${EMPTY}
+
+Upload File while providing existing directory but not providing file name
+                      NOK       ${Application_ID}    ${EXECDIR}                         ${EMPTY}    ${EMPTY}
+
+Upload File while providing non-existing Sandbox ID
+                      NOK       ${Application_ID}    ${EXECDIR}\\VeracodeJavaAPI.jar    ${EMPTY}    Invalid
+
+Assert Application ID as Mandatory Field
+                      NOK       ${EMPTY}             ${EXECDIR}\\VeracodeJavaAPI.jar    API.jar     ${Sandbox_ID}
+
+Assert File as Mandatory Field
+                      NOK       ${Application_ID}    ${EMPTY}                           API.jar     ${Sandbox_ID}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "UPLOAD FILE"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Upload File Template
+    [Arguments]    ${OK_NOK}    ${ApplicationID}    ${File}    ${SaveAs}    ${SandboxID}
+    [Documentation]    This test starts Upload File.
+    ...    -Precondition: To execute valid test, Valid Connection Details should be known to user.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${ApplicationID}: This field specifies ID of the application into which you want to upload new file.
+    ...    -${File}: This field specifies full file path including file name.
+    ...    -${SaveAs}: This field specifies the new filename if you want to upload with a different name.
+    ...    -${SandboxID}: This field specifies the ID of the sandbox to which you want to upload the file.
+    Generate String
+    Init Action    ${_UPLOAD_FILE_ACTION}
+    Connect to Veracode
+    Connect to Proxy
+    Run Keyword If    '${ApplicationID}' == 'Invalid'    Action Set    &UC4RB_VER_APP_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_APP_ID#    ${ApplicationID}
+    Run Keyword If    '${File}' == 'Invalid'    Action Set    &UC4RB_VER_FILE#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_FILE#    ${File}
+    Action Set    &UC4RB_VER_SAVE_AS#    ${SaveAs}
+    Run Keyword If    '${SandboxID}' == 'Invalid'    Action Set    &UC4RB_VER_SANDBOX#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_SANDBOX#    ${SandboxID}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_FILE_IDS#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_FILE_IDS#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+
+Teardown
+    Log    *******End Test "UPLOAD FILE"*******
