@@ -45,4 +45,6 @@ ${Phone}          8682064033
 ${Custom_ID}      automic
 ${Other_Filters}    -loginenabled=true
 #----Delete User-----------------------------------------------------------------------------------------
-${User_Name}      Alan
+${User_Name}      AB1@cd.com
+${User_Name_2}    AB2@cd.com
+${Custom_ID_2}    automic12345
