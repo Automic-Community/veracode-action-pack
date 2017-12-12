@@ -1,0 +1,57 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        delete_user
+Test Template     Delete User Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    UserName          CustomID
+Delete User with valid Username
+                      [Tags]    main_scenarios
+                      OK        ${User_Name}      ${EMPTY}
+
+Delete User with valid Custom ID
+                      OK        ${EMPTY}          ${Custom_ID}
+
+Delete User while providing non-existing Username
+                      NOK       Invalid           ${EMPTY}
+
+Delete User while providing non-existing Custom ID
+                      NOK       ${EMPTY}          Invalid
+
+Assert Username and Custom ID as Conditional Field
+                      NOK       ${EMPTY}          ${EMPTY}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "DELETE USER"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Delete User Template
+    [Arguments]    ${OK_NOK}    ${UserName}    ${CustomID}
+    [Documentation]    This test starts Delete User.
+    ...    -Precondition: To execute valid test, Valid Connection Details should be known to user.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${UserName}: This field specifies username you want to delete.
+    ...    -${CustomID}: This field specifies custom id you want to delete.
+    Generate String
+    Init Action    ${_DELETE_USER_ACTION}
+    Connect to Veracode
+    Connect to Proxy
+    Run Keyword If    '${UserName}' == 'Invalid'    Action Set    &UC4RB_VER_USERNAME#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_USERNAME#    ${UserName}
+    Run Keyword If    '${CustomID}' == 'Invalid'    Action Set    &UC4RB_VER_CUSTOM_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_CUSTOM_ID#    ${CustomID}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+
+Teardown
+    Log    *******End Test "DELETE USER"*******
