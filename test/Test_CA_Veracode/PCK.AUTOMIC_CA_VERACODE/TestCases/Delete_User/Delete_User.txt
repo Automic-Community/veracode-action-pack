@@ -25,7 +25,7 @@ Delete User while providing non-existing Username
 Delete User while providing non-existing Custom ID
                       NOK       ${EMPTY}          Invalid
 
-Delete User while providing non-existing Custom ID
+Delete User while providing User name and Custom ID Both
                       NOK       ${User_Name_2}    ${Custom_ID_2}
 
 Assert Username and Custom ID as Conditional Field
