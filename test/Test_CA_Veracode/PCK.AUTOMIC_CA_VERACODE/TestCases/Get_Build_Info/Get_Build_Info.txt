@@ -22,7 +22,7 @@ Get Build Info with valid inputs and not giving Build ID
 Get Build Info with valid inputs and not giving Sandbox ID
                       OK        ${Application_ID}    ${Build_ID}    ${EMPTY}
 
-Get Build Info with valid inputs and not giving Sandbox ID
+Get Build Info with valid inputs and not giving Buid id and Sandbox ID
                       OK        ${Application_ID}    ${EMPTY}       ${EMPTY}
 
 Assertion with Invalid APPLICATION ID
@@ -31,7 +31,7 @@ Assertion with Invalid APPLICATION ID
 Assertion with Invalid Build ID
                       NOK       ${Application_ID}    Invalid        ${Sandbox_ID}
 
-Assertion with Invalid Build ID
+Assertion with Invalid Sandbox ID
                       NOK       ${Application_ID}    ${Build_ID}    Invalid
 
 Assert Application ID as Mandatory Field
