@@ -1,0 +1,69 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        get_build_info
+Test Template     Get Build Info Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    ApplicationID        BuildID        SandboxID
+Get Build Info with valid inputs
+                      [Tags]    main_scenarios
+                      OK        ${Application_ID}    ${Build_ID}    ${Sandbox_ID}
+
+Get Build Info with valid inputs and not giving Build ID
+                      OK        ${Application_ID}    ${EMPTY}       ${Sandbox_ID}
+
+Get Build Info with valid inputs and not giving Sandbox ID
+                      OK        ${Application_ID}    ${Build_ID}    ${EMPTY}
+
+Get Build Info with valid inputs and not giving Buid id and Sandbox ID
+                      OK        ${Application_ID}    ${EMPTY}       ${EMPTY}
+
+Assertion with Invalid APPLICATION ID
+                      NOK       Invalid              ${Build_ID}    ${Sandbox_ID}
+
+Assertion with Invalid Build ID
+                      NOK       ${Application_ID}    Invalid        ${Sandbox_ID}
+
+Assertion with Invalid Sandbox ID
+                      NOK       ${Application_ID}    ${Build_ID}    Invalid
+
+Assert Application ID as Mandatory Field
+                      NOK       ${EMPTY}             ${Build_ID}    ${Sandbox_ID}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "GET BUILD INFO"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Get Build Info Template
+    [Arguments]    ${OK_NOK}    ${ApplicationID}    ${BuildID}    ${SandboxID}
+    [Documentation]    This test starts Get Build Info.
+    ...    -Precondition: To execute valid test, Valid Connection Details should be known to user.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK. Value of this variable should be OK or NOK.
+    ...    -${ApplicationID}: This field specifies ID of the scanned application.
+    ...    -${BuildID}: This field specifies Build ID of the scan. If empty system gets recent static scan results.
+    ...    -${SandboxID}:This field specifies ID of the sandbox if you performed a sandbox scan.
+    Generate String
+    Init Action    ${_GET_BUILD_INFO_ACTION}
+    Connect to Proxy
+    Connect to Veracode
+    Run Keyword If    '${ApplicationID}' == 'Invalid'    Action Set    &UC4RB_VER_APP_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_APP_ID#    ${ApplicationID}
+    Run Keyword If    '${BuildID}' == 'Invalid'    Action Set    &UC4RB_VER_BUILD_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_BUILD_ID#    ${BuildID}
+    Run Keyword If    '${SandboxID}' == 'Invalid'    Action Set    &UC4RB_VER_SANDBOX#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_SANDBOX#    ${SandboxID}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+
+Teardown
+    Log    *******End Test "GET BUILD INFO"*******
