@@ -165,7 +165,7 @@
 :ENDIF
 
 :IF &CHECK# = 2
-: STOP MSG, 50, "Do not select both Username and Custom ID."
+: STOP MSG, 50, "Do not provide both Username and Custom ID."
 :ENDIF
 
 : PRINT "Command executed :: &UC4RB_CMD#"
