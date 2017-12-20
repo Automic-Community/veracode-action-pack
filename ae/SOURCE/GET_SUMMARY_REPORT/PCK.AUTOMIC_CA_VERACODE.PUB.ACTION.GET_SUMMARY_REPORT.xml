@@ -466,7 +466,7 @@
 PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_SUMMARY_REPORT
 
 = General description =
-This action downloads a PDF and XML summary report of the scan results for the specified build. This call contains detailed flaw data
+This action downloads a PDF and XML summary report of the scan results for the specified build.
 
 = Failure Conditions =
 * If the user does not have access to the specified build Id.
