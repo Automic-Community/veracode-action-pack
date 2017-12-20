@@ -19,8 +19,14 @@ Get Summary Report with valid inputs
 Get Summary Report with valid inputs and not giving output directory
                       OK        ${Build_ID}       XML       ${EMPTY}
 
+Get Summary Report with valid inputs and overwriting Output file
+                      OK        ${Build_ID}       PDF       ${File_Name}
+
 Get Summary Report with Build ID as Invalid
                       NOK       Invalid           XML       ${File_Name}
+
+Get Summary Report with File Name as Invalid
+                      NOK       ${Build_ID}       XML       wrong\\path
 
 Assert Build ID as Mandatory Field
                       NOK       ${EMPTY}          PDF       ${File_Name}
@@ -49,6 +55,8 @@ Get Summary Report Template
     Run Keyword If    '${FileName}' == 'Invalid'    Action Set    &UC4RB_VER_FILE_NAME#    ${Generated_Name}_${Time}    ELSE    Action Set
     ...    &UC4RB_VER_FILE_NAME#    ${FileName}
     Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Assert Success    ELSE IF    '${OK_NOK}' == 'NOK'    Assert Failure
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_REPORT_PATH#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_REPORT_PATH#
 
 Teardown
     Log    *******End Test "GET SUMMARY REPORT"*******
