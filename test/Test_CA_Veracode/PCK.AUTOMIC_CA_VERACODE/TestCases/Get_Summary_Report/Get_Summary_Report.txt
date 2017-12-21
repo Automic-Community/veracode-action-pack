@@ -23,7 +23,7 @@ Get Summary Report with valid inputs and overwriting Output file
                       OK        ${Build_ID}       PDF       ${File_Name}
 
 Get Summary Report with valid inputs and format is CSV
-                      OK        ${Build_ID}       CSV       ${File_Name}
+                      OK        ${Build_ID}       CSV       ${EMPTY}
 
 Get Summary Report with Build ID as Invalid
                       NOK       Invalid           CSV       ${File_Name}
