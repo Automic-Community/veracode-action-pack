@@ -147,9 +147,10 @@
 :    STOP MSG, 50, "Incorrect Build ID, it can only be numeric."
 :  ENDIF
 
-
 : SET &ACTION_NAME# = "summaryreport"
 : INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PREPARE_CMD@WIN
+
+cd &AGENT_TEMPDIR#
 
 ! Build ID
 : SET &UC4RB_ESCAPED_STRING# = &UC4RB_VER_BUILD_ID#
