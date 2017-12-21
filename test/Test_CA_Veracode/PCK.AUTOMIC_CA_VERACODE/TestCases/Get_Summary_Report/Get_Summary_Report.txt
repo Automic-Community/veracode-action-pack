@@ -22,8 +22,11 @@ Get Summary Report with valid inputs and not giving output directory
 Get Summary Report with valid inputs and overwriting Output file
                       OK        ${Build_ID}       PDF       ${File_Name}
 
+Get Summary Report with valid inputs and format is CSV
+                      OK        ${Build_ID}       CSV       ${EMPTY}
+
 Get Summary Report with Build ID as Invalid
-                      NOK       Invalid           XML       ${File_Name}
+                      NOK       Invalid           CSV       ${File_Name}
 
 Get Summary Report with File Name as Invalid
                       NOK       ${Build_ID}       XML       wrong\\path
