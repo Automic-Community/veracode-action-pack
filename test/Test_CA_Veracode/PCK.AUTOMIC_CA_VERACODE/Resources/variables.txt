@@ -48,3 +48,5 @@ ${Other_Filters}    -loginenabled=true
 ${User_Name}      AB1@cd.com
 ${User_Name_2}    AB2@cd.com
 ${Custom_ID_2}    automic12345
+#----Get Summary Report-----------------------------------------------------------------------------------------
+${File_Name}      C:\\Users\\rajatkaushik\\Desktop
