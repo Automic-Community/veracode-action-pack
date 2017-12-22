@@ -480,7 +480,7 @@ This action downloads a PDF and XML summary report of the scan results for the s
 = Behavior =
 * File path should preexist if File Name input is provided. If not provided, the file will be saved in Agent's temp directory.
 * If the output file already exists, it will always overwrite the file.
-* If only the file name is provided (without file path), output file will be created in current directory.
+* If only the file name is provided (without file path), output file will be created in Agent's temp directory.
 
 =Return Value=
 
