@@ -482,14 +482,14 @@ This action creates a user with the given specifications.
 * If user tries to create a user with the same email id.
 
 = Inputs =
-* Firstname	: Provide name of the user you are creating. E.g. Alan
-* Lastname      : Provide surname of the user you are creating. E.g. Walker
-* Roles            : Provide roles separated by comma. Only human user roles can be specified. It is case sensitive. E.g. Creator,Executive
+* First Name	: Provide name of the user you are creating. E.g. Alan
+* Last Name    : Provide last name of the user you are creating. E.g. Walker
+* Roles            : Provide roles separated by comma. Only human user roles can be specified. It is case sensitive. E.g. Creator, Executive
 * Email            : Provide email address of the user you are creating. E.g. alan.walker@example.com
-* Teams          : Provide team names separated by comma. It is case sensitive. E.g. Spartan,Hermes  
+* Teams          : Provide team names separated by comma. It is case sensitive. E.g. Spartan, Hermes  
 
 = Behavior =
-* If a non-existing team name is provided in the input, the new user will be created with an empty team.
+* If a non-existing team name is provided in the input, the new user will not be associated with any team.
 
 =Return Value=
 * UC4RB_VER_RESPONSE:  User info XML content

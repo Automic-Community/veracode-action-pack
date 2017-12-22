@@ -469,13 +469,13 @@ PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_BUILD_INFO
 This action provides information about the most recent or specific scan of the application.
 
 = Failure Conditions =
-* If the user does not have access to the specified application id, sandboxid or build Id.
+* If the user does not have access to the specified application id, sandbox id or build Id.
 * If no scans have been performed on the specified application id yet. 
-* If the user has specified a non-existing application id, sandboxid or build Id.
+* If the user has specified a non-existing application id, sandbox id or build Id.
 
 = Inputs =
-* Application ID                : Provide ID of the scanned application. E.g. 384912
-* Build ID		  	         : Provide Build ID of the scan. If empty system gets recent static scan results. Validations: Build ID can only be numeric. E.g. 1797857
+* Application ID                : Provide ID of the prescanned application. E.g. 384912
+* Build ID		  	         : Provide Build ID of the scan. If the empty system gets recent static scan results. Validations: Build ID can only be numeric. E.g. 1797857
 * Sandbox ID		         : Enter the ID of the sandbox if you performed a sandbox scan. Validations: Sandbox ID can only be numeric. E.g. 481409
 
 = Behavior =
