@@ -466,7 +466,7 @@
 PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_SUMMARY_REPORT
 
 = General description =
-This action downloads a PDF and XML summary report of the scan results for the specified build.
+This action downloads a PDF, CSV and XML summary report of the scan results for the specified build.
 
 = Failure Conditions =
 * If the user does not have access to the specified build Id.
@@ -474,16 +474,16 @@ This action downloads a PDF and XML summary report of the scan results for the s
 
 = Inputs =
 * Build ID:                          Provide Build ID of the scan. Build Id should be numeric only E.g. 1853802 
-* File Name:                 Provide file name including full path where the report will be saved. E.g. C:/example/report.xml
+* File Name:                      Provide file name including full path where the report will be saved. E.g. C:/example/report.xml
 * Format:                           Specify in which format do you want to get the summary report. E.g. XML
 
 = Behavior =
 * File path should preexist if File Name input is provided. If not provided, the file will be saved in Agent's temp directory.
 * If the output file already exists, it will always overwrite the file.
-* If only the file name is provided (without file path), output file will be created in Agent's temp directory.
+* If only the file name is provided (without file path), the output file will be created in Agent's temp directory.
 
 =Return Value=
-
+&UC4RB_VER_REPORT_PATH# :  Output Report file path
 
 = Outputs =
 * Return code is 0 in case of success.
