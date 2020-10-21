@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBI name="PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.PUBLISH_XML_OUTPUT">
+<HEADER state="1">
+<Title>Publish XML output</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[:SET &STATUS# = GET_UC_OBJECT_STATUS(,,"RETCODE")
+:SET &UC4RB_VER_RESPONSE# = ""
+
+
+:IF &STATUS# EQ 0
+:            SET &NL# = UC_CRLF()
+:            SET &HND# = PREP_PROCESS_FILE(&AGENT#,&UC4RB_TEMP_FILE_PATH#,,,,'UC_LOGIN=&LOGIN#')
+:            PROCESS &HND#
+:                 SET &LINE#=GET_PROCESS_LINE(&HND#)
+:                 SET &UC4RB_VER_RESPONSE# = STR_CAT(&UC4RB_VER_RESPONSE#, &LINE#)
+:                 SET &UC4RB_VER_RESPONSE# = STR_CAT(&UC4RB_VER_RESPONSE#, &NL#)
+:            ENDPROCESS
+:            CLOSE_PROCESS &HND#
+
+:            SET &UC4RB_DELETE_FILE#=&UC4RB_TEMP_FILE_PATH#
+:            INC PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.DELETE_FILE
+:ENDIF
+
+:PUBLISH &UC4RB_VER_RESPONSE#,,"WORKFLOW"]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

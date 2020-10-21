@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<JOBI name="PCK.AUTOMIC_CA_VERACODE.PUB.INCLUDE.DELETE_FILE">
+<HEADER state="1">
+<Title>Delete temporary file</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<SCRIPT mode="1" state="1">
+<MSCRI><![CDATA[! Invoking DELETE JOBS to delete temporary files
+: PUT_PROMPT_BUFFER UC4RB_DIR_FILE_RM_NAME# = &UC4RB_DELETE_FILE#
+: PUT_PROMPT_BUFFER UC4RB_DIR_FILE_RM_FAIL# = "NO"
+: PUT_PROMPT_BUFFER AGENT# =  &AGENT#
+: PUT_PROMPT_BUFFER LOGIN# =  &LOGIN#
+: SET &ACTOBJ# = ACTIVATE_UC_OBJECT("PCK.AUTOMIC_FILESYSTEM.PUB.ACTION.DELETE", WAIT)
+: IF &ACTOBJ# = "0"
+:    SET &ERRNR# = SYS_LAST_ERR_NR()
+:    SET &ERRINS#  = SYS_LAST_ERR_INS()
+:    SET &MESSAGE# = GET_MSG_TXT(&ERRNR#,&ERRINS#)
+:    PRINT &ERRNR# &ERRINS# &MESSAGE#
+: ENDIF]]></MSCRI>
+</SCRIPT>
+<DOCU_Docu state="1" type="text">
+<DOC/>
+</DOCU_Docu>
+</JOBI>
+</uc-export>

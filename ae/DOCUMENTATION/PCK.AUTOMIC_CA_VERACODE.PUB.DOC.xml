@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<DOCU name="PCK.AUTOMIC_CA_VERACODE.PUB.DOC">
+<HEADER state="1">
+<Title>Package documentation</Title>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[About the Package
+================================
+Veracode is an application security company. Veracode provides an automated cloud-based service for securing web, mobile and third-party enterprise applications. By providing multiple security analysis technologies on a single platform, including static analysis, dynamic analysis, mobile application behavioural analysis and software composition analysis.Veracode allows you to scan Java, JSP, .NET- C#, .NET - VB.NET, ASP.NET, .NET - C+/CLI, C/C+, PHP, ColdFusion, iOS, Android, J2ME, Ruby, Classic ASP, VBScript, VB6, Flash (using Dynamic), COBOL, and JavaScript for mobile and web applications.Veracode?s automated static binary analysis reviews the final integrated application, without requiring source code. You securely upload your executables to the Veracode Platform, and the scan examines the compiled binary at implementation time to detect security flaws.
+
+=Supported versions=
+VeracodeJavaAPI v17.10.4.8 c1.8.0_121
+
+=Setup=
+* Oracle JRE 1.7 or higher must be installed on Agent OS and "java" must be set as executable on the same.
+* Internet Connection should be available on Agent OS.
+* VeracodeJavaAPI CLI jar  v17.10.4.8 c1.8.0_91 should be present on Agent OS
+
+=Variables=
+(None)
+
+=Common Inputs=
+* API ID			       : Provide API ID for authentication. E.g. 4c668506111a7e
+* API Key                        : Provide API key for authentication.
+* Veracode CLI Location: Provide the path for Veracode Java CLI. E.g. C:\VeracodeJavaAPI\VeracodeJavaAPI.jar
+* Proxy Host		       : Specify proxy host. E.g. https://center.veracode.com
+* Proxy Port                    : Specify proxy port. E.g. 443
+* Proxy User                   : Specify proxy username. E.g. username
+* Proxy Password           : Specify password to proxy username.	
+* Sudo Username           : The username to be used for the sudo command. 
+* Options                         : Run using sudo password (and sudo username if specified).
+* Sudo Password            : The password to be used for the sudo command.	
+* Overwrite Agent		: Overwrites the default agent
+* Overwrite Login		: Overwrites the default login
+
+=Actions=
+Following actions are supported.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_TEAM
+* Action Description: This action creates a team along with member if provided.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.BEGIN_PRESCAN
+* Action Description: This action initiates the prescan of an application.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_USER
+* Action Description: This action creates a user with the given specifications.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_TEAM
+* Action Description: This action deletes a specified team of users.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.BEGIN_SCAN
+* Action Description: This action runs the full scan of the application.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_PRESCAN_RESULTS
+* Action Description: This action fetches the results of the pre-scan.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_TEAM_LIST
+* Action Description: This action provides list of existing teams
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.CREATE_APPLICATION
+* Action Description: This action creates a new application in the portfolio.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.UPLOAD_FILE
+* Action Description: This action uploads a file to an existing application or creates a new build if one does not already exist.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_APPLICATION_LIST
+* Action Description: This action fetches the list of applications.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_USER
+* Action Description: This action deletes the specified user.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.DELETE_APPLICATION
+* Action Description: This action deletes an existing application.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_USER_LIST
+* Action Description: This action returns a list of the Veracode user accounts separated by comma.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_BUILD_INFO
+* Action Description: This action provides information about the most recent or specific scan of the application.
+
+* Action name:  PCK.AUTOMIC_CA_VERACODE.PUB.ACTION.GET_SUMMARY_REPORT
+* Action Description: This action downloads a PDF and XML summary report of the scan results for the specified build.]]></DOC>
+</DOCU_Docu>
+</DOCU>
+</uc-export>

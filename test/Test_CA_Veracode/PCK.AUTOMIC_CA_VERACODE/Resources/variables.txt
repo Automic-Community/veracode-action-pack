@@ -1,0 +1,52 @@
+*** Settings ***
+Resource          ../../../Env/default.txt
+
+*** Variables ***
+#---- Promptset Fields --------------------------------------------------------------------------------------
+#----Global Variables----------------------------------------------------------------------------------------
+${API_ID}         ADD_API_ID_HERE
+${API_Key}        ADD_API_KEY_HERE
+${Veracode_CLI_Location}    ${EXECDIR}\\VeracodeJavaAPI.jar
+${Proxy_Host}     192.168.44.75
+${Proxy_Port}     808
+${Proxy_User}     ${EMPTY}
+${Proxy_Password}    ${EMPTY}
+${Application_ID}    383756
+${Sandbox_ID}     479089
+#----Delete Team----------------------------------------------------------------------------------------
+${Team_ID}        99132
+#----Begin Scan----------------------------------------------------------------------------------------
+${Module}         923694273
+#----Create Team----------------------------------------------------------------------------------------
+${Team_Name}      ATeam
+${Team_Name_1}    AutomicTeam
+${Team_Name_2}    HermesTeam
+${Team_Name_3}    RobotTeam
+${Team_Members}    ankit.taneja@ext.automic.com,shruti.nambiar@ext.automic.com
+${Member}         ankit.taneja@ext.automic.com
+#----Create User----------------------------------------------------------------------------------------
+${First_Name}     Alan
+${Last_Name}      Cartor
+${Role}           Creator
+${Email_ID}       alan.walker15@example.com
+${Email_ID2}      alan.walker16@example.com
+${Email_ID3}      alan.walker17@example.com
+${Team}           Spartan
+#----Get Prescan Results----------------------------------------------------------------------------------------
+${Build_ID}       1797857
+#----Begin PreScan----------------------------------------------------------------------------------------
+${Application_ID2}    385812
+#----Create Application-----------------------------------------------------------------------------------------
+${Application_Name}    AutAppln
+${Application_Name_1}    RobotAppln
+${Application_Name_2}    AutRobotAppln
+#----Get User List-----------------------------------------------------------------------------------------
+${Phone}          8682064033
+${Custom_ID}      automic
+${Other_Filters}    -loginenabled=true
+#----Delete User-----------------------------------------------------------------------------------------
+${User_Name}      AB1@cd.com
+${User_Name_2}    AB2@cd.com
+${Custom_ID_2}    automic12345
+#----Get Summary Report-----------------------------------------------------------------------------------------
+${File_Name}      C:\\Users\\rajatkaushik\\Desktop

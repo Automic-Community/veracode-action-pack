@@ -1,0 +1,70 @@
+*** Settings ***
+Suite Setup       Startup
+Suite Teardown    Teardown
+Force Tags        begin_scan
+Test Template     Begin Scan Template
+Library           com.automic.robot.itpa.ItpaLibrary
+Library           String
+Library           DateTime
+Resource          ../../Resources/messages.txt
+Resource          ../../Resources/keywords.txt
+Resource          ../../Resources/variables.txt
+Resource          ../../Resources/actions.txt
+
+*** Test Cases ***    OK_NOK    ApplicationID        Modules      ScanOptions                   SandboxID
+Begin Scan with valid Inputs with providing module
+                      [Tags]    main_scenarios
+                      OK        ${Application_ID}    ${Module}    ${EMPTY}                      ${EMPTY}
+
+Begin Scan with valid Inputs without providing module
+                      OK        ${Application_ID}    ${EMPTY}     Scan All Top Level Modules    ${Sandbox_ID}
+
+Begin Scan with valid Inputs with providing module and Scan option Both
+                      NOK       ${Application_ID}    ${Module}    Scan All Top Level Modules    ${Sandbox_ID}
+
+Begin Scan with Invalid Application ID
+                      NOK       Invalid              ${Module}    ${EMPTY}                      ${Sandbox_ID}
+
+Begin Scan with invalid Module
+                      NOK       ${Application_ID}    Invalid      ${EMPTY}                      ${Sandbox_ID}
+
+Begin Scan with invalid Sandbox ID
+                      NOK       ${Application_ID}    ${Module}    ${EMPTY}                      Invalid
+
+Assert Application ID as mandatory field
+                      NOK       ${EMPTY}             ${EMPTY}     Scan All Top Level Modules    ${Sandbox_ID}
+
+Assert Modules and Scan option as conditional field
+                      NOK       ${Application_ID}    ${EMPTY}     ${EMPTY}                      ${Sandbox_ID}
+
+*** Keywords ***
+Startup
+    Log    *******Start Test "BEGIN SCAN"*******
+    Log    *******Connect to AE*******
+    Connect AE
+
+Begin Scan Template
+    [Arguments]    ${OK_NOK}    ${ApplicationID}    ${Modules}    ${ScanOptions}    ${SandboxID}
+    [Documentation]    This test executes the Begin Scan for module or application.
+    ...    -${OK_NOK}: Boolean value indicate if the action is ENDED_OK or ENDED_NOT_OK/FAULT_OTHER. Value of this variable should be OK, NOK.
+    ...    -${ApplicationID}: This field specifies application ID which will be scanned.
+    ...    -${Modules}: This field specifies top-level module IDs separated by comma.
+    ...    -${ScanOptions}: This field specifies option to scan modules.
+    ...    -${SandboxID}: This field specifies the ID of the sandbox if you are performing a sandbox scan.
+    Generate String
+    Init Action    ${_BEGIN_SCAN_ACTION}
+    Connect to Veracode
+    Connect to Proxy
+    Run Keyword If    '${ApplicationID}' == 'Invalid'    Action Set    &UC4RB_VER_APP_ID#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_APP_ID#    ${ApplicationID}
+    Run Keyword If    '${Modules}' == 'Invalid'    Action Set    &UC4RB_VER_MODULES#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_MODULES#    ${Modules}
+    Action Set    &UC4RB_VER_SCAN_OPTIONS#    ${ScanOptions}
+    Run Keyword If    '${SandboxID}' == 'Invalid'    Action Set    &UC4RB_VER_SANDBOX#    ${Generated_Name}_${Time}    ELSE    Action Set
+    ...    &UC4RB_VER_SANDBOX#    ${SandboxID}
+    Action Execute
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_RESPONSE#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_RESPONSE#
+    Run Keyword If    '${OK_NOK}' == 'OK'    Action Object Variable Should Be Found    &UC4RB_VER_BUILD_ID#    ELSE    Action Object Variable Should Not Be Found    &UC4RB_VER_BUILD_ID#
+
+Teardown
+    Log    *******End Test "BEGIN SCAN"*******
